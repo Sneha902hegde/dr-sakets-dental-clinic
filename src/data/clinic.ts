@@ -73,6 +73,5 @@ export const navLinks: NavLink[] = [
     ],
   },
   { label: 'Gallery', to: '/gallery' },
-  { label: 'Testimonials', to: '/#testimonials' },
   { label: 'Contact', to: '/contact' },
 ];
