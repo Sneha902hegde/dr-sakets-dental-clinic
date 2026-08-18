@@ -162,7 +162,7 @@ function AppointmentCta({ service }: { service: ServiceContent }) {
 
 export default function ServicePage({ serviceKey }: ServicePageProps) {
   const service = services[serviceKey];
-  useEffect(() => { window.scrollTo(0, 0); document.title = `${service.eyebrow} | Dr. Saket’s Dental Clinic`; }, [service]);
+  useEffect(() => { window.scrollTo(0, 0); }, [service]);
   return (
     <>
       <Hero service={service} />

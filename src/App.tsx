@@ -9,36 +9,41 @@ import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
 import ServicePage from './pages/ServicePage';
 import { NavContext, type Page } from './hooks/useNav';
+import { useSeo } from './hooks/useSeo';
+import { seoForPage } from './data/seo';
 import { services, type ServiceKey } from './data/services';
 
-const hashToPage = (hash: string): Page => {
-  if (hash === '#/about') return 'about';
-  if (hash === '#/braces') return 'braces';
-  if (hash === '#/gallery') return 'gallery';
-  if (hash === '#/contact') return 'contact';
-  const serviceKey = hash.replace(/^#\//, '') as ServiceKey;
+// Map a real URL path (e.g. "/about" or "/dental-implants") to a page.
+const pathToPage = (rawPath: string): Page => {
+  const path = rawPath.replace(/\/+$/, '') || '/';
+  if (path === '/about') return 'about';
+  if (path === '/braces') return 'braces';
+  if (path === '/gallery') return 'gallery';
+  if (path === '/contact') return 'contact';
+  const serviceKey = path.replace(/^\//, '') as ServiceKey;
   if (serviceKey in services) return serviceKey;
   return 'home';
 };
 
-const pageToHash = (page: Page): string => {
-  if (page === 'about') return '#/about';
-  if (page === 'braces') return '#/braces';
-  if (page === 'gallery') return '#/gallery';
-  if (page === 'contact') return '#/contact';
-  if (page in services) return `#/${page}`;
-  return '#/';
+// Map a page to its clean URL path (e.g. "about" -> "/about").
+const pageToPath = (page: Page): string => {
+  if (page === 'about') return '/about';
+  if (page === 'braces') return '/braces';
+  if (page === 'gallery') return '/gallery';
+  if (page === 'contact') return '/contact';
+  if (page in services) return `/${page}`;
+  return '/';
 };
 
 export default function App() {
   const [page, setPage] = useState<Page>(() =>
-    typeof window !== 'undefined' ? hashToPage(window.location.hash) : 'home'
+    typeof window !== 'undefined' ? pathToPage(window.location.pathname) : 'home'
   );
 
   const navigate = useCallback((next: Page) => {
     setPage(next);
     window.scrollTo({ top: 0, behavior: 'instant' });
-    window.history.replaceState(null, '', pageToHash(next));
+    window.history.pushState(null, '', pageToPath(next));
   }, []);
 
   const navigateToSection = useCallback(
@@ -47,7 +52,7 @@ export default function App() {
       const contactSections = ['book'];
       if (contactSections.includes(sectionId)) {
         setPage('contact');
-        window.history.replaceState(null, '', '#/contact');
+        window.history.pushState(null, '', `/contact#${sectionId}`);
         setTimeout(() => {
           document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
         }, 120);
@@ -55,11 +60,12 @@ export default function App() {
       }
       if (page !== 'home') {
         setPage('home');
-        window.history.replaceState(null, '', '#/');
+        window.history.pushState(null, '', `/#${sectionId}`);
         setTimeout(() => {
           document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
         }, 120);
       } else {
+        window.history.pushState(null, '', `/#${sectionId}`);
         document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
       }
     },
@@ -67,10 +73,12 @@ export default function App() {
   );
 
   useEffect(() => {
-    const onPop = () => setPage(hashToPage(window.location.hash));
+    const onPop = () => setPage(pathToPage(window.location.pathname));
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
   }, []);
+
+  useSeo(seoForPage(page));
 
   return (
     <NavContext.Provider value={{ page, navigate, navigateToSection }}>

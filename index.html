@@ -23,8 +23,14 @@
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0F4C81" />
 
+    <!-- Canonical (per-page value is refined in the app as visitors navigate) -->
+    <link rel="canonical" href="https://dr-sakets-dental-clinic.vercel.app/" />
+
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Dr. Saket's Orthodontic & Multispeciality Dental Clinic" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:url" content="https://dr-sakets-dental-clinic.vercel.app/" />
     <meta
       property="og:title"
       content="Dr. Saket's Orthodontic & Multispeciality Dental Clinic | Aundh, Pune"
@@ -45,23 +51,56 @@
       content="Healthy smiles, confident lives. Advanced orthodontic & multispeciality dental care in Aundh, Pune led by Dr. Saket Rallabhandi."
     />
 
-    <!-- Structured Data -->
+    <!-- Structured Data: Local Business (Dentist) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Dentist",
+        "@id": "https://dr-sakets-dental-clinic.vercel.app/#clinic",
         "name": "Dr. Saket's Orthodontic & Multispeciality Dental Clinic",
-        "image": "",
-        "areaServed": "Aundh, Pune",
+        "description": "Orthodontic and multispeciality dental clinic in Aundh, Pune offering braces, clear aligners, dental implants, root canal treatment, smile makeovers and pediatric dentistry.",
+        "url": "https://dr-sakets-dental-clinic.vercel.app/",
+        "image": "https://dr-sakets-dental-clinic.vercel.app/unnamed.webp",
+        "logo": "https://dr-sakets-dental-clinic.vercel.app/unnamed.webp",
+        "telephone": "+91-9972804333",
+        "email": "drsaket.ralla@gmail.com",
+        "priceRange": "₹₹",
+        "medicalSpecialty": "Orthodontic",
+        "currenciesAccepted": "INR",
+        "areaServed": "Aundh, Pune, Maharashtra, India",
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "Aundh, Pune",
+          "streetAddress": "2, A Wing, Sayali Garden, Nagras Road, Ward No. 8, Wireless Colony, Aundh",
+          "addressLocality": "Pune",
           "addressRegion": "Maharashtra",
+          "postalCode": "411067",
           "addressCountry": "IN"
         },
-        "telephone": "+91-9972804333",
-        "openingHours": "Tu-Su 10:00-13:00,17:00-21:00",
-        "priceRange": "₹₹"
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 18.5590,
+          "longitude": 73.8078
+        },
+        "founder": {
+          "@type": "Person",
+          "name": "Dr. Saket Sai Rallabhandi",
+          "jobTitle": "Orthodontist",
+          "honorificSuffix": "MDS, F-PFA (USA)"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "10:00",
+            "closes": "13:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "17:00",
+            "closes": "21:00"
+          }
+        ]
       }
     </script>
 
@@ -72,10 +111,9 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <meta property="og:image" content="https://bolt.new/static/og_default.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
-</head>
+    <meta property="og:image" content="https://dr-sakets-dental-clinic.vercel.app/unnamed.webp" />
+    <meta name="twitter:image" content="https://dr-sakets-dental-clinic.vercel.app/unnamed.webp" />
+  </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
