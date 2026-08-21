@@ -1,6 +1,5 @@
 import { ArrowRight } from 'lucide-react';
 import { Reveal, Stagger, StaggerItem } from './Reveal';
-import { useNav } from '../hooks/useNav';
 
 const images = [
   { id: 1, span: 'sm:col-span-2', h: 'h-64 sm:h-80' },
@@ -50,10 +49,10 @@ export default function SmileGallery() {
         </Stagger>
 
         <Reveal className="mt-12 text-center">
-          <button onClick={() => navigate('gallery')} className="btn-primary">
+          <a href="/gallery" className="btn-primary">
             View Gallery
             <ArrowRight className="h-4 w-4" />
-          </button>
+          </a>
         </Reveal>
       </div>
     </section>
