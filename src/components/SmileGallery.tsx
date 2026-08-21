@@ -1,6 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import { Reveal, Stagger, StaggerItem } from './Reveal';
-import { useSectionNav } from '../hooks/useSectionNav';
+import { useNav } from '../hooks/useNav';
 
 const images = [
   { id: 1, span: 'sm:col-span-2', h: 'h-64 sm:h-80' },
@@ -17,7 +17,7 @@ const px = (id: number) =>
 const photoIds = [6683392, 6597709, 6234600, 6234552, 1571460, 4173251];
 
 export default function SmileGallery() {
-  const toSection = useSectionNav();
+  const { navigate } = useNav();
   return (
     <section id="gallery" className="py-20 sm:py-24">
       <div className="container-page">
@@ -50,7 +50,7 @@ export default function SmileGallery() {
         </Stagger>
 
         <Reveal className="mt-12 text-center">
-          <button onClick={() => toSection('#contact')} className="btn-primary">
+          <button onClick={() => navigate('gallery')} className="btn-primary">
             View Gallery
             <ArrowRight className="h-4 w-4" />
           </button>
