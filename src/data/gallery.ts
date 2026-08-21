@@ -61,10 +61,39 @@ export const galleryItems: GalleryItem[] = [
   { id: 'team-interaction', category: 'team', label: 'Patient Interaction', alt: 'Doctor with patient', image: px(4173251), height: 'h-64 sm:h-72' },
 
   // Events & Continuing Education
-  { id: 'event-conf', category: 'events', label: 'Conference', alt: 'Dental conference', image: px(6682734), span: 'sm:col-span-2', height: 'h-72 sm:h-80' },
-  { id: 'event-workshop', category: 'events', label: 'Workshop', alt: 'Hands-on workshop', image: px(3845625), height: 'h-64 sm:h-72' },
-  { id: 'event-lecture', category: 'events', label: 'Lecture', alt: 'Lecture by Dr. Saket', image: px(3779705), height: 'h-64 sm:h-72' },
-  { id: 'event-panel', category: 'events', label: 'Professional Event', alt: 'Professional dental event', image: px(6682750), height: 'h-64 sm:h-72' },
+  {
+    id: 'event-conf',
+    category: 'events',
+    label: 'Post-Graduation Convocation',
+    alt: 'Dr. Saket at a post-graduation convocation ceremony',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/SUR_1371.JPG-kXz4w7UOU9ZbJSaYFo0nsOuv626R6n.jpeg',
+    span: 'sm:col-span-2',
+    height: 'h-72 sm:h-80',
+  },
+  {
+    id: 'event-workshop',
+    category: 'events',
+    label: 'IDA Office Bearers Meeting',
+    alt: 'Dental professionals at an IDA office bearers meeting',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-08-21%20at%201.01.17%20PM%20%283%29-1Ud7Hc0sMjuzsLUoSR0nGEZ4spB96W.jpeg',
+    height: 'h-64 sm:h-72',
+  },
+  {
+    id: 'event-lecture',
+    category: 'events',
+    label: 'IDA AGM',
+    alt: 'Dental professionals gathered at an IDA annual general meeting',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-08-21%20at%201.01.17%20PM-lgVMXVIvJmd7biuU1c3qydZmUYP4QV.jpeg',
+    height: 'h-64 sm:h-72',
+  },
+  {
+    id: 'event-panel',
+    category: 'events',
+    label: 'IDA Pune West Presentation',
+    alt: 'Dr. Saket presenting at an IDA Pune West professional event',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-08-21%20at%201.01.16%20PM%20%281%29-79FDnvqhT0NQIv2O4FGv4BSW21epYp.jpeg',
+    height: 'h-64 sm:h-72',
+  },
 ];
 
 export const galleryHero = {

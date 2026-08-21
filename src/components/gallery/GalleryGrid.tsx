@@ -85,7 +85,7 @@ export default function GalleryGrid() {
 
         <Reveal className="mt-10 text-center">
           <p className="text-xs text-ink-400">
-            Images shown are illustrative placeholders and will be replaced with clinic photographs.
+            Event and continuing education photographs are shown with permission; other gallery categories will be updated with clinic photographs.
           </p>
         </Reveal>
       </div>
