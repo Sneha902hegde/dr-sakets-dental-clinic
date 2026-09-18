@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import { Reveal, Stagger, StaggerItem } from './Reveal';
+import { useNav } from '../hooks/useNav';
 
 const images = [
   { id: 1, span: 'sm:col-span-2', h: 'h-64 sm:h-80' },
