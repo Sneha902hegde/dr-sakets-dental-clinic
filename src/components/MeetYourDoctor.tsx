@@ -14,10 +14,9 @@ export default function MeetYourDoctor() {
           <Reveal className="lg:col-span-2">
             <div className="relative mx-auto max-w-sm">
               <div className="absolute -inset-3 rounded-[2.25rem] bg-gradient-to-br from-primary-400/30 to-accent-400/30 blur-2xl" />
-              {/* Doctor photo placeholder — replace with Dr. Saket Rallabhandi's photo */}
               <div className="relative overflow-hidden rounded-[2rem] shadow-card ring-1 ring-ink-100">
                 <img
-                  src="https://images.pexels.com/photos/6234600/pexels-photo-6234600.jpeg?auto=compress&cs=tinysrgb&w=700"
+                  src="/images/Dr_Saket_Rallabhandi.jpg"
                   alt="Dr. Saket Rallabhandi, Orthodontist at Dr. Saket's Dental Clinic"
                   className="h-[28rem] w-full object-cover"
                   loading="lazy"

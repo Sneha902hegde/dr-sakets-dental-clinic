@@ -18,7 +18,7 @@ export default function BeyondDentistry() {
               <div className="absolute -inset-3 rounded-[2.25rem] bg-gradient-to-br from-accent-400/30 to-primary-400/30 blur-2xl" />
               <div className="relative overflow-hidden rounded-[2rem] shadow-card ring-1 ring-ink-100">
                 <img
-                  src="https://images.pexels.com/photos/5407206/pexels-photo-5407206.jpeg?auto=compress&cs=tinysrgb&w=700"
+                  src="/images/Dr_Saket_Rallabhandi.jpg"
                   alt="Dr. Saket Sai Rallabhandi — life beyond dentistry"
                   className="h-[26rem] w-full object-cover"
                   loading="lazy"
