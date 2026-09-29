@@ -1,10 +1,11 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Camera, Maximize2 } from 'lucide-react';
+import { Camera, Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import {
   galleryItems,
   galleryFilters,
   type GalleryCategory,
+  type GalleryItem,
 } from '../../data/gallery';
 import { Reveal } from '../Reveal';
 
@@ -12,11 +13,44 @@ type FilterId = GalleryCategory | 'all';
 
 export default function GalleryGrid() {
   const [active, setActive] = useState<FilterId>('all');
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const filtered = useMemo(
     () => (active === 'all' ? galleryItems : galleryItems.filter((i) => i.category === active)),
-    [active]
+    [active],
   );
+
+  const openLightbox = useCallback((item: GalleryItem) => {
+    const idx = filtered.findIndex((i) => i.id === item.id);
+    if (idx >= 0) setLightboxIndex(idx);
+  }, [filtered]);
+
+  const closeLightbox = useCallback(() => setLightboxIndex(null), []);
+
+  const goPrev = useCallback(() => {
+    setLightboxIndex((prev) => (prev === null ? null : (prev - 1 + filtered.length) % filtered.length));
+  }, [filtered.length]);
+
+  const goNext = useCallback(() => {
+    setLightboxIndex((prev) => (prev === null ? null : (prev + 1) % filtered.length));
+  }, [filtered.length]);
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') goPrev();
+      if (e.key === 'ArrowRight') goNext();
+    };
+    window.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [lightboxIndex, closeLightbox, goPrev, goNext]);
+
+  const current = lightboxIndex !== null ? filtered[lightboxIndex] : null;
 
   return (
     <section id="gallery-grid" className="bg-ink-50 py-20 sm:py-24">
@@ -60,7 +94,8 @@ export default function GalleryGrid() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                className={`group relative overflow-hidden rounded-3xl shadow-soft ring-1 ring-ink-100 ${item.span ?? ''}`}
+                className={`group relative cursor-pointer overflow-hidden rounded-3xl shadow-soft ring-1 ring-ink-100 ${item.span ?? ''}`}
+                onClick={() => openLightbox(item)}
               >
                 <img
                   src={item.image}
@@ -74,7 +109,7 @@ export default function GalleryGrid() {
                     <Camera className="h-4 w-4 text-accent-300" />
                     {item.label}
                   </span>
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur transition-transform duration-300 group-hover:scale-110">
                     <Maximize2 className="h-4 w-4" />
                   </span>
                 </figcaption>
@@ -89,6 +124,77 @@ export default function GalleryGrid() {
           </p>
         </Reveal>
       </div>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {current && (
+          <motion.div
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-ink-900/90 p-4 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            onClick={closeLightbox}
+          >
+            {/* Close button */}
+            <button
+              onClick={closeLightbox}
+              className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+              aria-label="Close"
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            {/* Previous button */}
+            {filtered.length > 1 && (
+              <button
+                onClick={(e) => { e.stopPropagation(); goPrev(); }}
+                className="absolute left-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+                aria-label="Previous photo"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </button>
+            )}
+
+            {/* Next button */}
+            {filtered.length > 1 && (
+              <button
+                onClick={(e) => { e.stopPropagation(); goNext(); }}
+                className="absolute right-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+                aria-label="Next photo"
+              >
+                <ChevronRight className="h-6 w-6" />
+              </button>
+            )}
+
+            {/* Image */}
+            <motion.figure
+              key={current.id}
+              className="relative max-h-[85vh] max-w-5xl"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={current.image}
+                alt={current.alt}
+                className="max-h-[85vh] w-auto rounded-2xl object-contain shadow-2xl"
+              />
+              <figcaption className="mt-4 flex items-center justify-center gap-2 text-center text-sm font-medium text-white/90">
+                <Camera className="h-4 w-4 text-accent-300" />
+                {current.label}
+                {filtered.length > 1 && (
+                  <span className="ml-3 text-white/50">
+                    {lightboxIndex! + 1} / {filtered.length}
+                  </span>
+                )}
+              </figcaption>
+            </motion.figure>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
