@@ -94,6 +94,15 @@ export const galleryItems: GalleryItem[] = [
     image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-08-21%20at%201.01.16%20PM%20%281%29-79FDnvqhT0NQIv2O4FGv4BSW21epYp.jpeg',
     height: 'h-64 sm:h-72',
   },
+  {
+    id: 'event-new-photo',
+    category: 'events',
+    label: 'Recent Event',
+    alt: 'Dr. Saket at a recent dental event',
+    image: '/images/gallery/WhatsApp_Image_2026-09-29_at_3.09.26_PM.jpeg',
+    span: 'sm:col-span-2',
+    height: 'h-72 sm:h-80',
+  },
 ];
 
 export const galleryHero = {
