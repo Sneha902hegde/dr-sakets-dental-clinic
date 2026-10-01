@@ -33,11 +33,11 @@ const px = (id: number) =>
 
 export const galleryItems: GalleryItem[] = [
   // Clinic
-  { id: 'clinic-reception', category: 'clinic', label: 'Reception', alt: 'Clinic reception area at Dr. Saket\'s Dental Clinic', image: px(6683392), span: 'sm:col-span-2', height: 'h-72 sm:h-80' },
-  { id: 'clinic-lounge', category: 'clinic', label: 'Waiting Lounge', alt: 'Comfortable waiting lounge', image: px(6597709), height: 'h-64 sm:h-72' },
-  { id: 'clinic-consult', category: 'clinic', label: 'Consultation Room', alt: 'Consultation room', image: px(6234600), height: 'h-64 sm:h-72' },
-  { id: 'clinic-operatory', category: 'clinic', label: 'Treatment Operatory', alt: 'Treatment operatory', image: px(6234552), span: 'sm:row-span-2', height: 'h-72 sm:h-[34rem]' },
-  { id: 'clinic-sterilization', category: 'clinic', label: 'Sterilization Area', alt: 'Sterilization area', image: px(1571460), height: 'h-64 sm:h-72' },
+  { id: 'clinic-reception', category: 'clinic', label: 'Reception Area', alt: 'Reception area at Dr. Saket\'s Dental Clinic', image: '/images/clinic/Reception_Area.jpeg', span: 'sm:col-span-2', height: 'h-72 sm:h-80' },
+  { id: 'clinic-lounge', category: 'clinic', label: 'Waiting Area', alt: 'Comfortable waiting area at Dr. Saket\'s Dental Clinic', image: '/images/clinic/waiting_area.jpeg', height: 'h-64 sm:h-72' },
+  { id: 'clinic-consult', category: 'clinic', label: 'Pierre Fauchard Fellowship', alt: 'Dr. Saket receiving his Pierre Fauchard Fellowship', image: '/images/clinic/about/Pierre_Fauchard_fellowship.jpeg', height: 'h-64 sm:h-72' },
+  { id: 'clinic-operatory', category: 'clinic', label: 'Treatment Operatory', alt: 'Treatment operatory at Dr. Saket\'s Dental Clinic', image: '/images/clinic/Operatory_room.jpeg', span: 'sm:row-span-2', height: 'h-72 sm:h-[34rem]' },
+  { id: 'clinic-sterilization', category: 'clinic', label: 'RCSE Endodontics', alt: 'RCSE Endodontics professional training', image: '/images/clinic/services/Rcse_endodontics.jpeg', height: 'h-64 sm:h-72' },
 
   // Treatment Rooms
   { id: 'room-chair', category: 'treatment-rooms', label: 'Dental Chair', alt: 'Modern dental chair', image: px(4173251), span: 'sm:col-span-2', height: 'h-72 sm:h-80' },
