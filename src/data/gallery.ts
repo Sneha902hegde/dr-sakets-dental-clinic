@@ -38,9 +38,9 @@ export const galleryItems: GalleryItem[] = [
   { id: 'event-rcse-endodontics', category: 'events', label: 'RCSE Endodontics', alt: 'RCSE Endodontics professional training', image: '/images/clinic/services/Rcse_endodontics.jpeg', height: 'h-64 sm:h-72' },
 
   // Technology
-  { id: 'tech-scanner', category: 'technology', label: 'Intraoral Scanner', alt: 'Intraoral digital scanner', image: px(6682734), span: 'sm:col-span-2', height: 'h-72 sm:h-80' },
-  { id: 'tech-imaging', category: 'technology', label: 'Digital Imaging', alt: 'Digital dental imaging', image: px(3779705), height: 'h-64 sm:h-72' },
-  { id: 'tech-equipment', category: 'technology', label: 'Digital Equipment', alt: 'Advanced dental equipment', image: px(6683392), height: 'h-64 sm:h-72' },
+  { id: 'tech-scanner', category: 'technology', label: 'Intraoral Scanning', alt: 'Intraoral scanning in the dental clinic', image: '/images/gallery/Intraoral_Scanning.jpeg', span: 'sm:col-span-2', height: 'h-72 sm:h-80' },
+  { id: 'tech-imaging', category: 'technology', label: 'Soft Tissue Diode Laser', alt: 'Soft tissue diode laser equipment', image: '/images/gallery/soft_tissue_diode_laser.jpeg', height: 'h-64 sm:h-72' },
+  { id: 'tech-equipment', category: 'technology', label: 'System B Obturation System', alt: 'System B obturation system equipment', image: '/images/gallery/System_B_obturation_system.jpeg', height: 'h-64 sm:h-72' },
 
   // Smile Transformations
   { id: 'smile-1', category: 'smile-transformations', label: 'Orthodontic Case', alt: 'Orthodontic before and after', image: px(6597709), span: 'sm:col-span-2', height: 'h-72 sm:h-80' },
