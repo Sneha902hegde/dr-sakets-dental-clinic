@@ -1,6 +1,5 @@
 export type GalleryCategory =
   | 'clinic'
-  | 'treatment-rooms'
   | 'technology'
   | 'smile-transformations'
   | 'team'
@@ -21,7 +20,6 @@ export type GalleryItem = {
 export const galleryFilters: { id: GalleryCategory | 'all'; label: string }[] = [
   { id: 'all', label: 'All' },
   { id: 'clinic', label: 'Clinic' },
-  { id: 'treatment-rooms', label: 'Treatment Rooms' },
   { id: 'technology', label: 'Technology' },
   { id: 'smile-transformations', label: 'Smile Transformations' },
   { id: 'team', label: 'Team' },
@@ -38,11 +36,6 @@ export const galleryItems: GalleryItem[] = [
   { id: 'event-fellowship', category: 'events', label: 'Pierre Fauchard Fellowship', alt: 'Dr. Saket receiving his Pierre Fauchard Fellowship', image: '/images/clinic/about/Pierre_Fauchard_fellowship.jpeg', height: 'h-64 sm:h-72' },
   { id: 'clinic-operatory', category: 'clinic', label: 'Treatment Operatory', alt: 'Treatment operatory at Dr. Saket\'s Dental Clinic', image: '/images/clinic/Operatory_room.jpeg', span: 'sm:row-span-2', height: 'h-72 sm:h-[34rem]' },
   { id: 'event-rcse-endodontics', category: 'events', label: 'RCSE Endodontics', alt: 'RCSE Endodontics professional training', image: '/images/clinic/services/Rcse_endodontics.jpeg', height: 'h-64 sm:h-72' },
-
-  // Treatment Rooms
-  { id: 'room-chair', category: 'treatment-rooms', label: 'Dental Chair', alt: 'Modern dental chair', image: px(4173251), span: 'sm:col-span-2', height: 'h-72 sm:h-80' },
-  { id: 'room-suite', category: 'treatment-rooms', label: 'Treatment Suite', alt: 'Treatment suite', image: px(6682750), height: 'h-64 sm:h-72' },
-  { id: 'room-light', category: 'treatment-rooms', label: 'Operatory Light', alt: 'Operatory light and unit', image: px(3845625), height: 'h-64 sm:h-72' },
 
   // Technology
   { id: 'tech-scanner', category: 'technology', label: 'Intraoral Scanner', alt: 'Intraoral digital scanner', image: px(6682734), span: 'sm:col-span-2', height: 'h-72 sm:h-80' },
