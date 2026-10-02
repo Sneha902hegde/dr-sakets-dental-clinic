@@ -101,10 +101,9 @@ export default function Hero() {
         >
           <div className="relative">
             <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-primary-400/30 to-accent-400/30 blur-2xl" />
-            {/* Premium dental imagery placeholder — replace with clinic photo */}
             <div className="relative overflow-hidden rounded-[2rem] shadow-card ring-1 ring-ink-100">
               <img
-                src="https://images.pexels.com/photos/6683392/pexels-photo-6683392.jpeg?auto=compress&cs=tinysrgb&w=900"
+                src="/images/WhatsApp_Image_2026-10-02_at_12.10.52_PM.jpeg"
                 alt="Dental care at Dr. Saket's Orthodontic & Multispeciality Dental Clinic"
                 className="h-[26rem] w-full object-cover sm:h-[32rem]"
                 loading="eager"
@@ -118,8 +117,8 @@ export default function Hero() {
               animate={{ y: [0, -12, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <p className="text-2xl font-bold text-primary-700">10+ yrs</p>
-              <p className="text-xs font-medium text-ink-500">Of Excellence</p>
+              <p className="text-2xl font-bold text-primary-700">MDS</p>
+              <p className="text-xs font-medium text-ink-500">Orthodontics</p>
             </motion.div>
             <motion.div
               className="absolute -right-4 bottom-10 rounded-2xl bg-white/95 p-4 shadow-card ring-1 ring-ink-100 backdrop-blur sm:-right-8"
