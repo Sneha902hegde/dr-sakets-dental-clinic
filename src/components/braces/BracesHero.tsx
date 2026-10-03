@@ -105,7 +105,7 @@ export default function BracesHero() {
             <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-primary-400/30 to-accent-400/30 blur-2xl" />
             <div className="relative overflow-hidden rounded-[2rem] shadow-card ring-1 ring-ink-100">
               <img
-                src={bracesHero.image}
+                src="/images/clinic-treatment.jpeg"
                 alt="Patient smiling with braces at Dr. Saket's Dental Clinic"
                 className="h-[26rem] w-full object-cover sm:h-[32rem]"
                 loading="eager"
