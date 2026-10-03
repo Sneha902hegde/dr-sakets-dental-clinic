@@ -103,7 +103,7 @@ export default function Hero() {
             <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-primary-400/30 to-accent-400/30 blur-2xl" />
             <div className="relative overflow-hidden rounded-[2rem] shadow-card ring-1 ring-ink-100">
               <img
-                src="/images/WhatsApp_Image_2026-10-02_at_12.10.52_PM.jpeg"
+                src="/images/gallery/WhatsApp_Image_2026-09-29_at_3.09.26_PM.jpeg"
                 alt="Dental care at Dr. Saket's Orthodontic & Multispeciality Dental Clinic"
                 className="h-[26rem] w-full object-cover sm:h-[32rem]"
                 loading="eager"
