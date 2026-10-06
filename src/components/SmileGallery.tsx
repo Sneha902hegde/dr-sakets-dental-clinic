@@ -9,10 +9,14 @@ const images = [
   { id: 6, span: '', h: 'h-64 sm:h-80' },
 ];
 
-const px = (id: number) =>
-  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=800`;
-
-const photoIds = [6683392, 6597709, 6234600, 6234552, 1571460, 4173251];
+const photoPaths = [
+  '/images/gallery/WhatsApp_Image_2026-09-29_at_3.09.26_PM.jpeg',
+  '/images/Dr_Saket_Rallabhandi.jpg',
+  '/images/about/dr_saket_football.jpg',
+  '/images/clinic-photo-1.webp',
+  '/images/clinic-photo-2.webp',
+  '/images/gallery/WhatsApp_Image_2026-09-29_at_3.09.26_PM.jpeg',
+];
 
 export default function SmileGallery() {
   return (
@@ -36,7 +40,7 @@ export default function SmileGallery() {
             >
               {/* Smile gallery image placeholder — replace with clinic before/after photos */}
               <img
-                src={px(photoIds[i])}
+                src={photoPaths[i]}
                 alt={`Smile gallery ${item.id}`}
                 className={`${item.h} w-full object-cover transition-transform duration-500 group-hover:scale-110`}
                 loading="lazy"
