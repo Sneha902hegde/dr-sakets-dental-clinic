@@ -3,7 +3,7 @@ export const bracesHero = {
   title: 'A Straighter Smile Begins Here',
   subtitle:
     "Whether you're considering braces for yourself or your child, Dr. Saket provides personalized orthodontic treatment designed to improve your smile, bite, and long-term oral health.",
-  image: '/images/gallery/WhatsApp_Image_2026-09-29_at_3.09.26_PM.jpeg',
+  image: '/images/consultation.jpeg',
   badges: ['MDS Orthodontist', 'Aundh, Pune'],
 };
 
@@ -19,7 +19,7 @@ export const orthodonticsIntro = {
     { title: 'Improved Function', text: 'Make chewing, biting and speech easier and more efficient.' },
     { title: 'Improved Confidence', text: 'A straighter smile helps you feel comfortable in every moment.' },
   ],
-  image: '/images/gallery/WhatsApp_Image_2026-09-29_at_3.09.26_PM.jpeg',
+  image: '/images/consultation.jpeg',
 };
 
 export const conditions = [
