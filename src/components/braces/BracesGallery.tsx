@@ -1,18 +1,27 @@
 import { motion } from 'framer-motion';
 import Section from '../Section';
+import BeforeAfterSlider from '../BeforeAfterSlider';
 import { useScrollTo } from '../../hooks/useScrollTo';
+
+type Case = {
+  label: string;
+  before: string;
+  after: string;
+  midlines?: [before: number, after: number];
+};
 
 const px = (id: number) =>
   `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=800`;
 
-const cases = [
-  { before: px(6683392), after: px(1571460), label: 'Crowding corrected' },
+const cases: Case[] = [
+  { label: 'Crowding corrected', before: px(6683392), after: px(1571460) },
   {
+    label: 'Overbite resolved',
     before: '/images/braces/deep_bite_correction.jpeg',
     after: '/images/braces/braces_doctor_pune.jpg',
-    label: 'Overbite resolved',
+    midlines: [0.505, 0.6],
   },
-  { before: px(6234600), after: px(6234552), label: 'Spacing closed' },
+  { label: 'Spacing closed', before: px(6234600), after: px(6234552) },
 ];
 
 export default function BracesGallery() {
@@ -35,33 +44,46 @@ export default function BracesGallery() {
             transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="card card-hover group overflow-hidden"
           >
-            <div className="grid grid-cols-2">
-              <div className="relative overflow-hidden">
-                <img
-                  src={c.before}
-                  alt={`Before orthodontic treatment — ${c.label}`}
-                  className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <span className="absolute left-3 top-3 rounded-full bg-ink-900/70 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur">
-                  Before
-                </span>
+            {c.midlines ? (
+              <BeforeAfterSlider
+                before={c.before}
+                after={c.after}
+                beforeAlt={`Before orthodontic treatment — ${c.label}`}
+                afterAlt={`After orthodontic treatment — ${c.label}`}
+                beforeMidline={c.midlines[0]}
+                afterMidline={c.midlines[1]}
+              />
+            ) : (
+              <div className="grid grid-cols-2">
+                <div className="relative overflow-hidden">
+                  <img
+                    src={c.before}
+                    alt={`Before orthodontic treatment — ${c.label}`}
+                    className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <span className="absolute left-3 top-3 rounded-full bg-ink-900/70 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur">
+                    Before
+                  </span>
+                </div>
+                <div className="relative overflow-hidden">
+                  <img
+                    src={c.after}
+                    alt={`After orthodontic treatment — ${c.label}`}
+                    className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <span className="absolute left-3 top-3 rounded-full bg-accent-400 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur">
+                    After
+                  </span>
+                </div>
               </div>
-              <div className="relative overflow-hidden">
-                <img
-                  src={c.after}
-                  alt={`After orthodontic treatment — ${c.label}`}
-                  className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <span className="absolute left-3 top-3 rounded-full bg-accent-400 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur">
-                  After
-                </span>
-              </div>
-            </div>
+            )}
             <div className="flex items-center justify-between gap-3 p-5">
               <p className="text-sm font-semibold text-ink-900">{c.label}</p>
-              <span className="text-xs text-ink-400">Illustrative result</span>
+              <span className="text-xs text-ink-400">
+                {c.midlines ? 'Drag to compare' : 'Illustrative result'}
+              </span>
             </div>
           </motion.div>
         ))}
