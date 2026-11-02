@@ -53,7 +53,7 @@ export const braceTypes = [
     advantages: ['Subtle, tooth-coloured brackets', 'Effective for most cases', 'Stain-resistant materials'],
     appearance: 'Blends naturally with your teeth.',
     considerations: 'Slightly more care needed with strongly coloured foods.',
-    image: 'https://images.pexels.com/photos/4147967/pexels-photo-4147967.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/images/braces/WhatsApp_Image_2026-11-02_at_11.50.28_AM.jpeg',
   },
   {
     name: 'Self-Ligating Braces',
