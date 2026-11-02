@@ -2,14 +2,18 @@ import { motion } from 'framer-motion';
 import Section from '../Section';
 import { useScrollTo } from '../../hooks/useScrollTo';
 
-const cases = [
-  { before: 6683392, after: 1571460, label: 'Crowding corrected' },
-  { before: 6597709, after: 4173251, label: 'Overbite resolved' },
-  { before: 6234600, after: 6234552, label: 'Spacing closed' },
-];
-
 const px = (id: number) =>
   `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=800`;
+
+const cases = [
+  { before: px(6683392), after: px(1571460), label: 'Crowding corrected' },
+  {
+    before: '/images/braces/deep_bite_correction.jpeg',
+    after: '/images/braces/braces_doctor_pune.jpg',
+    label: 'Overbite resolved',
+  },
+  { before: px(6234600), after: px(6234552), label: 'Spacing closed' },
+];
 
 export default function BracesGallery() {
   const toSection = useScrollTo();
@@ -34,7 +38,7 @@ export default function BracesGallery() {
             <div className="grid grid-cols-2">
               <div className="relative overflow-hidden">
                 <img
-                  src={px(c.before)}
+                  src={c.before}
                   alt={`Before orthodontic treatment — ${c.label}`}
                   className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
@@ -45,7 +49,7 @@ export default function BracesGallery() {
               </div>
               <div className="relative overflow-hidden">
                 <img
-                  src={px(c.after)}
+                  src={c.after}
                   alt={`After orthodontic treatment — ${c.label}`}
                   className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
