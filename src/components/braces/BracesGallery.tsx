@@ -16,7 +16,7 @@ const px = (id: number) =>
 const cases: Case[] = [
   { label: 'Crowding corrected', before: px(6683392), after: px(1571460) },
   {
-    label: 'Overbite resolved',
+    label: 'Crowding corrected',
     before: '/images/braces/deep_bite_correction.jpeg',
     after: '/images/braces/braces_doctor_pune.jpg',
     midlines: [0.505, 0.6],
