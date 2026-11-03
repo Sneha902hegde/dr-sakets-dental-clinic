@@ -73,7 +73,7 @@ export const braceTypes = [
     advantages: ['Guides facial growth', 'Reduces future complexity', 'Often avoids extractions'],
     appearance: 'Customised removable or fixed appliances.',
     considerations: 'Best timed with a child\u2019s natural growth phases.',
-    image: 'https://images.pexels.com/photos/6893542/pexels-photo-6893542.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/images/braces/Early_orthodontic_treatment.jpg',
   },
 ];
 
