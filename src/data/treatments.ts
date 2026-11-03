@@ -63,7 +63,7 @@ export const braceTypes = [
     advantages: ['Fewer adjustment visits', 'Reduced friction & discomfort', 'Easier oral hygiene'],
     appearance: 'Available in metal or clear options.',
     considerations: 'A modern system suited to most alignment needs.',
-    image: 'https://images.pexels.com/photos/6682750/pexels-photo-6682750.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/images/braces/Self_ligating_braces_in_aundh.jpg',
   },
   {
     name: 'Early Orthodontic Appliances',
