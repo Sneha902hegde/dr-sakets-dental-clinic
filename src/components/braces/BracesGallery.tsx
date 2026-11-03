@@ -14,7 +14,7 @@ const px = (id: number) =>
   `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=800`;
 
 const cases: Case[] = [
-  { label: 'Crowding corrected', before: px(6683392), after: px(1571460) },
+  { label: 'Overbite corrected', before: px(6683392), after: px(1571460) },
   {
     label: 'Crowding corrected',
     before: '/images/braces/deep_bite_correction.jpeg',
