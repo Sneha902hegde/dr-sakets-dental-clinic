@@ -43,7 +43,7 @@ export const braceTypes = [
     advantages: ['Highly predictable results', 'Durable & cost-effective', 'Suitable for complex cases'],
     appearance: 'Visible silver brackets and wires.',
     considerations: 'The most time-tested option; ideal when maximum control is needed.',
-    image: 'https://images.pexels.com/photos/3845625/pexels-photo-3845625.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: '/images/braces/Metal_Braces_Aundh.JPG',
   },
   {
     name: 'Ceramic Braces',
