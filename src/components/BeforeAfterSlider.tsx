@@ -22,7 +22,6 @@ export default function BeforeAfterSlider({
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
-  const lastClientX = useRef<number | null>(null);
   const [pos, setPos] = useState(50);
 
   const zoom = Math.max(
@@ -39,30 +38,26 @@ export default function BeforeAfterSlider({
     const rect = ref.current?.getBoundingClientRect();
     if (!rect || rect.width === 0) return;
     const pct = ((clientX - rect.left) / rect.width) * 100;
-    setPos((current) => Math.max(current, Math.min(100, Math.max(0, pct))));
+    setPos(Math.min(100, Math.max(0, pct)));
   };
 
   const onPointerDown = (e: PointerEvent<HTMLDivElement>) => {
     dragging.current = true;
-    lastClientX.current = e.clientX;
     e.currentTarget.setPointerCapture(e.pointerId);
     setFromClientX(e.clientX);
   };
 
   const onPointerMove = (e: PointerEvent<HTMLDivElement>) => {
-    if (!dragging.current || lastClientX.current === null) return;
-    if (e.clientX <= lastClientX.current) return;
-    lastClientX.current = e.clientX;
-    setFromClientX(e.clientX);
+    if (dragging.current) setFromClientX(e.clientX);
   };
 
   const endDrag = () => {
     dragging.current = false;
-    lastClientX.current = null;
   };
 
   const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'ArrowRight') setPos((p) => Math.min(100, p + 5));
+    if (e.key === 'ArrowLeft') setPos((p) => Math.max(0, p - 5));
+    else if (e.key === 'ArrowRight') setPos((p) => Math.min(100, p + 5));
     else return;
     e.preventDefault();
   };
