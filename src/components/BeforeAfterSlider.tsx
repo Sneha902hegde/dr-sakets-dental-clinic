@@ -70,30 +70,30 @@ export default function BeforeAfterSlider({
       className="relative h-64 w-full cursor-ew-resize touch-pan-y select-none overflow-hidden"
     >
       <img
-        src={before}
-        alt={beforeAlt}
+        src={after}
+        alt={afterAlt}
         draggable={false}
         loading="lazy"
         className="pointer-events-none absolute top-0 h-full max-w-none object-cover"
-        style={layerStyle(beforeMidline)}
+        style={layerStyle(afterMidline)}
       />
 
       <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
         <img
-          src={after}
-          alt={afterAlt}
+          src={before}
+          alt={beforeAlt}
           draggable={false}
           loading="lazy"
           className="pointer-events-none absolute top-0 h-full max-w-none object-cover"
-          style={layerStyle(afterMidline)}
+          style={layerStyle(beforeMidline)}
         />
       </div>
 
       <span className="absolute left-3 top-3 rounded-full bg-ink-900/70 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur">
-        After
+        Before
       </span>
       <span className="absolute right-3 top-3 rounded-full bg-ink-900/70 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur">
-        Before
+        After
       </span>
 
       <div
