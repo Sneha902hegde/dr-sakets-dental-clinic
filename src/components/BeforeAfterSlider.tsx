@@ -8,6 +8,7 @@ type Props = {
   afterAlt: string;
   beforeMidline: number;
   afterMidline: number;
+  afterZoom?: number;
 };
 
 export default function BeforeAfterSlider({
@@ -17,6 +18,7 @@ export default function BeforeAfterSlider({
   afterAlt,
   beforeMidline,
   afterMidline,
+  afterZoom,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
@@ -27,9 +29,9 @@ export default function BeforeAfterSlider({
     ...[beforeMidline, afterMidline].flatMap((m) => [0.5 / m, 0.5 / (1 - m)]),
   );
 
-  const layerStyle = (midline: number) => ({
-    width: `${zoom * 100}%`,
-    left: `${(0.5 - midline * zoom) * 100}%`,
+  const layerStyle = (midline: number, scale = zoom) => ({
+    width: `${scale * 100}%`,
+    left: `${(0.5 - midline * scale) * 100}%`,
   });
 
   const setFromClientX = (clientX: number) => {
@@ -85,7 +87,7 @@ export default function BeforeAfterSlider({
           draggable={false}
           loading="lazy"
           className="pointer-events-none absolute top-0 h-full max-w-none object-cover"
-          style={layerStyle(afterMidline)}
+          style={layerStyle(afterMidline, afterZoom)}
         />
       </div>
 

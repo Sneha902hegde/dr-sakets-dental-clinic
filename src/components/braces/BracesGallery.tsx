@@ -8,6 +8,7 @@ type Case = {
   before: string;
   after: string;
   midlines?: [before: number, after: number];
+  afterZoom?: number;
 };
 
 const px = (id: number) =>
@@ -19,6 +20,7 @@ const cases: Case[] = [
     before: '/images/braces/Before_overbite.jpg',
     after: '/images/braces/After_overbite.JPG',
     midlines: [0.5, 0.5],
+    afterZoom: 1.35,
   },
   {
     label: 'Crowding corrected',
@@ -57,6 +59,7 @@ export default function BracesGallery() {
                 afterAlt={`After orthodontic treatment — ${c.label}`}
                 beforeMidline={c.midlines[0]}
                 afterMidline={c.midlines[1]}
+                afterZoom={c.afterZoom}
               />
             ) : (
               <div className="grid grid-cols-2">
