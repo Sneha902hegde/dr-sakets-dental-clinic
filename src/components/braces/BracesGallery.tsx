@@ -18,7 +18,7 @@ const cases: Case[] = [
   {
     label: 'Overbite corrected',
     before: '/images/braces/Before_overbite.jpg',
-    after: '/images/braces/After_overbite.JPG',
+    after: '/images/braces/After_overbite copy.JPG',
     midlines: [0.5, 0.5],
     afterZoom: 1.35,
   },
