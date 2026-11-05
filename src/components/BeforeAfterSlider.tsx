@@ -22,6 +22,8 @@ export default function BeforeAfterSlider({
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
+  const dragDirection = useRef<-1 | 1 | null>(null);
+  const lastClientX = useRef<number | null>(null);
   const [pos, setPos] = useState(50);
 
   const zoom = Math.max(
@@ -43,16 +45,27 @@ export default function BeforeAfterSlider({
 
   const onPointerDown = (e: PointerEvent<HTMLDivElement>) => {
     dragging.current = true;
+    dragDirection.current = null;
+    lastClientX.current = e.clientX;
     e.currentTarget.setPointerCapture(e.pointerId);
     setFromClientX(e.clientX);
   };
 
   const onPointerMove = (e: PointerEvent<HTMLDivElement>) => {
-    if (dragging.current) setFromClientX(e.clientX);
+    if (!dragging.current || lastClientX.current === null) return;
+    const delta = e.clientX - lastClientX.current;
+    if (delta === 0) return;
+    const direction = delta > 0 ? 1 : -1;
+    if (dragDirection.current === null) dragDirection.current = direction;
+    if (direction !== dragDirection.current) return;
+    lastClientX.current = e.clientX;
+    setFromClientX(e.clientX);
   };
 
   const endDrag = () => {
     dragging.current = false;
+    dragDirection.current = null;
+    lastClientX.current = null;
   };
 
   const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
