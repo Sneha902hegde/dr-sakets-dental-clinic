@@ -5,7 +5,6 @@ import FeaturedTreatments from '../components/FeaturedTreatments';
 import MeetYourDoctor from '../components/MeetYourDoctor';
 import PatientJourney from '../components/PatientJourney';
 import TechnologySterilization from '../components/TechnologySterilization';
-import SmileGallery from '../components/SmileGallery';
 import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
 
@@ -19,7 +18,6 @@ export default function HomePage() {
       <MeetYourDoctor />
       <PatientJourney />
       <TechnologySterilization />
-      <SmileGallery />
       <FAQ />
       <Contact />
     </>
