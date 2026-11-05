@@ -78,13 +78,23 @@ function Hero({ service }: { service: ServiceContent }) {
         </motion.div>
         <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.15 }} className="relative">
           <div className={`relative flex min-h-[22rem] items-end overflow-hidden rounded-[2rem] bg-gradient-to-br ${service.accent} p-7 shadow-card sm:min-h-[30rem]`}>
-            <div className="absolute inset-0 bg-dots opacity-10" />
+            {service.image ? (
+              <img src={service.image} alt={service.eyebrow} className="absolute inset-0 h-full w-full object-cover" />
+            ) : (
+              <div className="absolute inset-0 bg-dots opacity-10" />
+            )}
             <div className="absolute right-8 top-8 flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white/80 backdrop-blur"><Stethoscope className="h-9 w-9" /></div>
-            <div className="relative max-w-sm rounded-2xl bg-white/10 p-5 text-white ring-1 ring-white/20 backdrop-blur">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">Image placeholder</p>
-              <p className="mt-2 text-lg font-semibold">{service.imageLabel}</p>
-              <p className="mt-2 text-sm leading-relaxed text-white/70">Replace this space with an approved clinic or treatment photograph.</p>
-            </div>
+            {service.image ? (
+              <div className="relative max-w-sm rounded-2xl bg-black/30 p-5 text-white ring-1 ring-white/20 backdrop-blur">
+                <p className="mt-2 text-lg font-semibold">{service.imageLabel}</p>
+              </div>
+            ) : (
+              <div className="relative max-w-sm rounded-2xl bg-white/10 p-5 text-white ring-1 ring-white/20 backdrop-blur">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">Image placeholder</p>
+                <p className="mt-2 text-lg font-semibold">{service.imageLabel}</p>
+                <p className="mt-2 text-sm leading-relaxed text-white/70">Replace this space with an approved clinic or treatment photograph.</p>
+              </div>
+            )}
           </div>
         </motion.div>
       </div>
