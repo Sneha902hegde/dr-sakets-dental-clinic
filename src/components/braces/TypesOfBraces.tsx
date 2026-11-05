@@ -23,7 +23,7 @@ export default function TypesOfBraces() {
                 <img
                   src={b.image}
                   alt={`${b.name} at Dr. Saket's Dental Clinic`}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className={`h-full w-full transition-transform duration-500 group-hover:scale-105 ${b.fit === 'contain' ? 'object-contain' : 'object-cover'}`}
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink-900/55 via-ink-900/10 to-transparent" />

@@ -74,6 +74,7 @@ export const braceTypes = [
     appearance: 'Customised removable or fixed appliances.',
     considerations: 'Best timed with a child\u2019s natural growth phases.',
     image: '/images/braces/Early_orthodontic_treatment.jpg',
+    fit: 'contain',
   },
 ];
 
