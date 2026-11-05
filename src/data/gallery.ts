@@ -33,9 +33,7 @@ export const galleryItems: GalleryItem[] = [
   // Clinic
   { id: 'clinic-reception', category: 'clinic', label: 'Reception Area', alt: 'Reception area at Dr. Saket\'s Dental Clinic', image: '/images/clinic-photos/Reception_Area.jpeg', span: 'sm:col-span-2', height: 'h-72 sm:h-80' },
   { id: 'clinic-lounge', category: 'clinic', label: 'Waiting Area', alt: 'Comfortable waiting area at Dr. Saket\'s Dental Clinic', image: '/images/clinic-photos/waiting_area.jpeg', height: 'h-64 sm:h-72' },
-  { id: 'event-fellowship', category: 'events', label: 'Pierre Fauchard Fellowship', alt: 'Dr. Saket receiving his Pierre Fauchard Fellowship', image: '/images/about/Pierre_Fauchard_fellowship.jpeg', height: 'h-64 sm:h-72' },
   { id: 'clinic-operatory', category: 'clinic', label: 'Treatment Operatory', alt: 'Treatment operatory at Dr. Saket\'s Dental Clinic', image: '/images/clinic-photos/Operatory_room.jpeg', span: 'sm:row-span-2', height: 'h-72 sm:h-[34rem]' },
-  { id: 'event-rcse-endodontics', category: 'events', label: 'RCSE Endodontics', alt: 'RCSE Endodontics professional training', image: '/images/about/Rcse_endodontics.jpeg', height: 'h-64 sm:h-72' },
 
   // Technology
   { id: 'tech-scanner', category: 'technology', label: 'Intraoral Scanning', alt: 'Intraoral scanning in the dental clinic', image: '/images/gallery/Intraoral_Scanning.jpeg', span: 'sm:col-span-2', height: 'h-72 sm:h-80' },
@@ -63,6 +61,8 @@ export const galleryItems: GalleryItem[] = [
     span: 'sm:col-span-2',
     height: 'h-72 sm:h-80',
   },
+  { id: 'event-fellowship', category: 'events', label: 'Pierre Fauchard Fellowship', alt: 'Dr. Saket receiving his Pierre Fauchard Fellowship', image: '/images/about/Pierre_Fauchard_fellowship.jpeg', height: 'h-64 sm:h-72' },
+  { id: 'event-rcse-endodontics', category: 'events', label: 'RCSE Endodontics', alt: 'RCSE Endodontics professional training', image: '/images/about/Rcse_endodontics.jpeg', height: 'h-64 sm:h-72' },
   {
     id: 'event-workshop',
     category: 'events',
