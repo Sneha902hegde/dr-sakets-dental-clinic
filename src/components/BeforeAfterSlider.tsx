@@ -80,7 +80,7 @@ export default function BeforeAfterSlider({
         style={layerStyle(beforeMidline)}
       />
 
-      <div className="absolute inset-0" style={{ clipPath: `inset(0 0 0 ${100 - pos}%)` }}>
+      <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
         <img
           src={after}
           alt={afterAlt}
