@@ -23,6 +23,8 @@ export default function ContactMap() {
               className="h-[28rem] w-full border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+              allow="geolocation"
             />
             <div className="pointer-events-none absolute left-5 top-5 flex items-center gap-2 rounded-full bg-white/95 px-4 py-2 text-sm font-semibold text-primary-700 shadow-soft ring-1 ring-ink-100 backdrop-blur">
               <MapPin className="h-4 w-4 text-accent-500" />

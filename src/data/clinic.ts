@@ -9,7 +9,7 @@ export const clinic = {
   email: 'drsaket.ralla@gmail.com',
   address: '2, A Wing, Sayali Garden, Nagras Road, Ward No. 8, Wireless Colony, Aundh, Pune, Maharashtra – 411067',
   addressShort: 'Sayali Garden, Nagras Road, Wireless Colony, Aundh, Pune – 411067',
-  mapEmbed: 'https://maps.google.com/maps?q=Sayali+Garden+Nagras+Road+Wireless+Colony+Aundh+Pune+411067&t=&z=15&ie=UTF8&iwloc=&output=embed',
+  mapEmbed: 'https://www.google.com/maps?q=Sayali+Garden+Nagras+Road+Wireless+Colony+Aundh+Pune+411067&z=16&output=embed',
   mapDirections: 'https://www.google.com/maps/dir/?api=1&destination=Sayali+Garden+Nagras+Road+Wireless+Colony+Aundh+Pune+411067',
   timings: '10:00 AM – 1:00 PM & 5:00 PM – 9:00 PM',
   hours: [

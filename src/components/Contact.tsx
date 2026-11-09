@@ -117,6 +117,8 @@ export default function Contact() {
                 className="h-[26rem] w-full border-0 lg:h-full"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+                allow="geolocation"
               />
             </div>
           </Reveal>
