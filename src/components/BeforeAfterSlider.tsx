@@ -22,7 +22,7 @@ export default function BeforeAfterSlider({
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
-  const [pos, setPos] = useState(50);
+  const [pos, setPos] = useState(0);
 
   const zoom = Math.max(
     1,
@@ -91,12 +91,16 @@ export default function BeforeAfterSlider({
         />
       </div>
 
-      <span className="absolute left-3 top-3 rounded-full bg-ink-900/70 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur">
-        Before
-      </span>
-      <span className="absolute right-3 top-3 rounded-full bg-ink-900/70 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur">
-        After
-      </span>
+      {pos < 100 && (
+        <span className="absolute right-3 top-3 rounded-full bg-ink-900/70 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur">
+          Before
+        </span>
+      )}
+      {pos > 0 && (
+        <span className="absolute left-3 top-3 rounded-full bg-accent-400 px-2.5 py-1 text-xs font-semibold text-white backdrop-blur">
+          After
+        </span>
+      )}
 
       <div
         className="pointer-events-none absolute inset-y-0 w-0.5 -translate-x-1/2 bg-white shadow-[0_0_8px_rgba(0,0,0,0.35)]"
