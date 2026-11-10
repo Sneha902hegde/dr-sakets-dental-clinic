@@ -11,9 +11,6 @@ type Case = {
   afterZoom?: number;
 };
 
-const px = (id: number) =>
-  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=800`;
-
 const cases: Case[] = [
   {
     label: 'Overbite corrected',
@@ -28,7 +25,12 @@ const cases: Case[] = [
     after: '/images/braces/braces_doctor_pune.jpg',
     midlines: [0.505, 0.6],
   },
-  { label: 'Spacing closed', before: px(6234600), after: px(6234552) },
+  {
+    label: 'Spacing closed',
+    before: '/images/braces/IMG_1673_copy.jpg',
+    after: '/images/braces/IMG_8365_copy.jpg',
+    midlines: [0.5, 0.5],
+  },
 ];
 
 export default function BracesGallery() {
