@@ -80,15 +80,17 @@ function Hero({ service }: { service: ServiceContent }) {
         <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.15 }} className="relative">
           <div className={`relative flex min-h-[22rem] items-end overflow-hidden rounded-[2rem] bg-gradient-to-br ${service.accent} p-7 shadow-card sm:min-h-[30rem]`}>
             {service.key === 'smile-makeover' ? (
-              <BeforeAfterSlider
-                before="/images/services/smile_make_over_in_aundh.jpeg"
-                after="/images/services/smile_designing_post_in_aundh.jpeg"
-                beforeAlt="Before smile makeover treatment"
-                afterAlt="After smile makeover treatment"
-                beforeMidline={0.46}
-                afterMidline={0.46}
-                className="absolute inset-0 h-full"
-              />
+              <div className="absolute inset-0 z-0">
+                <BeforeAfterSlider
+                  before="/images/services/smile_make_over_in_aundh.jpeg"
+                  after="/images/services/smile_designing_post_in_aundh.jpeg"
+                  beforeAlt="Before smile makeover treatment"
+                  afterAlt="After smile makeover treatment"
+                  beforeMidline={0.46}
+                  afterMidline={0.46}
+                  className="h-full w-full"
+                />
+              </div>
             ) : service.image ? (
               <img src={service.image} alt={service.eyebrow} className="absolute inset-0 h-full w-full object-cover" />
             ) : (
@@ -98,12 +100,12 @@ function Hero({ service }: { service: ServiceContent }) {
               <div className="absolute right-8 top-8 flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white/80 backdrop-blur"><Stethoscope className="h-9 w-9" /></div>
             )}
             {service.key === 'smile-makeover' ? (
-              <div className="relative max-w-sm rounded-2xl bg-black/30 p-5 text-white ring-1 ring-white/20 backdrop-blur">
+              <div className="relative z-10 max-w-sm rounded-2xl bg-black/30 p-5 text-white ring-1 ring-white/20 backdrop-blur">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/70">Before & after</p>
                 <p className="mt-2 text-lg font-semibold">Smile makeover result</p>
               </div>
             ) : service.image ? (
-              <div className="relative max-w-sm rounded-2xl bg-black/30 p-5 text-white ring-1 ring-white/20 backdrop-blur">
+              <div className="relative z-10 max-w-sm rounded-2xl bg-black/30 p-5 text-white ring-1 ring-white/20 backdrop-blur">
                 <p className="mt-2 text-lg font-semibold">{service.imageLabel}</p>
               </div>
             ) : (

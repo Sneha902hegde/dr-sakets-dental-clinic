@@ -77,7 +77,7 @@ export default function BeforeAfterSlider({
         src={before}
         alt={beforeAlt}
         draggable={false}
-        loading="lazy"
+        loading="eager"
         className="pointer-events-none absolute top-0 h-full max-w-none object-cover"
         style={layerStyle(beforeMidline)}
       />
@@ -87,7 +87,7 @@ export default function BeforeAfterSlider({
           src={after}
           alt={afterAlt}
           draggable={false}
-          loading="lazy"
+          loading="eager"
           className="pointer-events-none absolute top-0 h-full max-w-none object-cover"
           style={layerStyle(afterMidline, afterZoom)}
         />
