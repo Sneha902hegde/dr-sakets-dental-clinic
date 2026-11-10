@@ -54,6 +54,7 @@ export const braceTypes = [
     appearance: 'Blends naturally with your teeth.',
     considerations: 'Slightly more care needed with strongly coloured foods.',
     image: '/images/braces/WhatsApp_Image_2026-11-02_at_11.50.28_AM.jpeg',
+    fit: 'contain',
   },
   {
     name: 'Self-Ligating Braces',
