@@ -47,7 +47,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            Step into a space designed around your comfort.
+            Step into a space designed around your comfort.{' '}
             <br className="hidden sm:block" />
             At Dr. Saket's Orthodontic & Multispeciality Dental Clinic, gentle hands and
             advanced technology come together to give your family healthy, confident smiles —

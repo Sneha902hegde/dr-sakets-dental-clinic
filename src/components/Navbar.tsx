@@ -157,7 +157,7 @@ export default function Navbar() {
             aria-hidden="true"
           />
           <div className="container-page relative z-50 pb-6">
-            <div className="animate-fade-up rounded-3xl bg-white p-4 shadow-card ring-1 ring-ink-100">
+            <div className="animate-fade-up max-h-[calc(100vh-7rem)] overflow-y-auto rounded-3xl bg-white p-4 shadow-card ring-1 ring-ink-100">
               <ul className="flex flex-col gap-1">
                 {navLinks.map((link) =>
                   link.children ? (
