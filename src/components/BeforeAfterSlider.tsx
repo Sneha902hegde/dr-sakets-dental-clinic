@@ -9,6 +9,7 @@ type Props = {
   beforeMidline: number;
   afterMidline: number;
   afterZoom?: number;
+  className?: string;
 };
 
 export default function BeforeAfterSlider({
@@ -19,6 +20,7 @@ export default function BeforeAfterSlider({
   beforeMidline,
   afterMidline,
   afterZoom,
+  className = '',
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
@@ -69,7 +71,7 @@ export default function BeforeAfterSlider({
       onPointerMove={onPointerMove}
       onPointerUp={endDrag}
       onPointerCancel={endDrag}
-      className="relative h-64 w-full cursor-ew-resize touch-pan-y select-none overflow-hidden"
+      className={`relative h-64 w-full cursor-ew-resize touch-pan-y select-none overflow-hidden ${className}`}
     >
       <img
         src={before}
