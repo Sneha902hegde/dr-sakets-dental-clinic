@@ -80,7 +80,7 @@ export default function BeforeAfterSlider({
         alt={beforeAlt}
         draggable={false}
         loading="eager"
-        className={`pointer-events-none absolute top-0 h-full max-w-none object-${imageFit}`}
+        className={`pointer-events-none absolute top-0 h-full max-w-none ${imageFit === 'contain' ? 'object-contain' : 'object-cover'}`}
         style={layerStyle(beforeMidline)}
       />
 
@@ -90,7 +90,7 @@ export default function BeforeAfterSlider({
           alt={afterAlt}
           draggable={false}
           loading="eager"
-          className={`pointer-events-none absolute top-0 h-full max-w-none object-${imageFit}`}
+          className={`pointer-events-none absolute top-0 h-full max-w-none ${imageFit === 'contain' ? 'object-contain' : 'object-cover'}`}
           style={layerStyle(afterMidline, afterZoom)}
         />
       </div>
