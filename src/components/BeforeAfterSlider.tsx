@@ -9,6 +9,7 @@ type Props = {
   beforeMidline: number;
   afterMidline: number;
   afterZoom?: number;
+  imageFit?: 'cover' | 'contain';
   className?: string;
 };
 
@@ -20,6 +21,7 @@ export default function BeforeAfterSlider({
   beforeMidline,
   afterMidline,
   afterZoom,
+  imageFit = 'cover',
   className = '',
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
@@ -78,7 +80,7 @@ export default function BeforeAfterSlider({
         alt={beforeAlt}
         draggable={false}
         loading="eager"
-        className="pointer-events-none absolute top-0 h-full max-w-none object-cover"
+        className={`pointer-events-none absolute top-0 h-full max-w-none object-${imageFit}`}
         style={layerStyle(beforeMidline)}
       />
 
@@ -88,7 +90,7 @@ export default function BeforeAfterSlider({
           alt={afterAlt}
           draggable={false}
           loading="eager"
-          className="pointer-events-none absolute top-0 h-full max-w-none object-cover"
+          className={`pointer-events-none absolute top-0 h-full max-w-none object-${imageFit}`}
           style={layerStyle(afterMidline, afterZoom)}
         />
       </div>

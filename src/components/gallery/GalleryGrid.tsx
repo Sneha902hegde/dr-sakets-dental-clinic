@@ -111,6 +111,7 @@ export default function GalleryGrid() {
                       beforeMidline={item.beforeMidline ?? 0.5}
                       afterMidline={item.afterMidline ?? 0.5}
                       afterZoom={item.afterZoom}
+                      imageFit={item.imageFit}
                       className="h-full"
                     />
                   </div>
