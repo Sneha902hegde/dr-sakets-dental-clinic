@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import { ArrowRight, CalendarPlus, Check, Phone, UserRound } from 'lucide-react';
+import { ArrowRight, Award, BookOpen, CalendarPlus, Check, GraduationCap, Phone, Stethoscope, UserRound } from 'lucide-react';
 import { useNav, type Page } from '../hooks/useNav';
-import { doctorProfiles, type DoctorProfileKey } from '../data/team';
+import { doctorProfiles, type DoctorProfileKey, type DoctorProfile } from '../data/team';
 import { clinic, callLink } from '../data/clinic';
 import Section from '../components/Section';
 import { Reveal, Stagger, StaggerItem } from '../components/Reveal';
@@ -22,6 +22,7 @@ export default function DoctorProfilePage({ doctorKey }: DoctorProfilePageProps)
   const { navigate } = useNav();
   const profile = doctorProfiles[doctorKey];
   const isSaket = doctorKey === 'saket';
+  const isSneha = doctorKey === 'sneha';
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -51,6 +52,13 @@ export default function DoctorProfilePage({ doctorKey }: DoctorProfilePageProps)
             <span className="eyebrow">Our Team · {profile.role}</span>
             <h1 className="mt-5 max-w-3xl text-4xl font-extrabold leading-[1.08] tracking-tight text-ink-900 sm:text-5xl lg:text-6xl">{profile.name}</h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-500 sm:text-xl">{profile.intro}</p>
+            {profile.introParagraphs && (
+              <div className="mt-5 max-w-2xl space-y-4">
+                {profile.introParagraphs.map((para, i) => (
+                  <p key={i} className="text-base leading-relaxed text-ink-500">{para}</p>
+                ))}
+              </div>
+            )}
             <button onClick={() => navigate('contact')} className="btn-primary mt-8"><CalendarPlus className="h-4 w-4" /> Book an Appointment</button>
           </Reveal>
         </div>
@@ -71,23 +79,12 @@ export default function DoctorProfilePage({ doctorKey }: DoctorProfilePageProps)
           <Memberships />
           <BeyondDentistry />
         </>
+      ) : isSneha ? (
+        <SnehaProfileSections profile={profile} />
       ) : (
         <>
           <Section eyebrow="Clinical focus" title={`Areas of expertise in ${profile.role.toLowerCase()}`} subtitle={profile.philosophy}>
             <ProfileAreas areas={profile.areas} />
-            {profile.education && (
-              <div className="mx-auto mt-12 max-w-3xl rounded-3xl bg-primary-50 p-7 ring-1 ring-primary-100 sm:p-9">
-                <h2 className="text-xl font-bold text-ink-900">Education</h2>
-                <ul className="mt-5 space-y-3">
-                  {profile.education.map((qualification) => (
-                    <li key={qualification} className="flex gap-3 text-sm leading-relaxed text-ink-600 sm:text-base">
-                      <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary-600" />
-                      <span>{qualification}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
           </Section>
           <Section eyebrow="A patient-centred approach" title="Care that is clear, considered and personal" className="bg-ink-50">
             <Reveal className="mx-auto max-w-3xl rounded-3xl bg-white p-8 text-center shadow-soft ring-1 ring-ink-100 sm:p-10">
@@ -138,5 +135,80 @@ function ProfileAreas({ areas }: { areas: string[] }) {
         </StaggerItem>
       ))}
     </Stagger>
+  );
+}
+
+function SnehaProfileSections({ profile }: { profile: DoctorProfile }) {
+  return (
+    <>
+      {/* Education */}
+      <Section eyebrow="Academic Background" title="Education & Qualifications" className="bg-white">
+        <Stagger className="mx-auto mt-12 max-w-4xl grid gap-5 sm:grid-cols-2">
+          {profile.education?.map((edu) => (
+            <StaggerItem key={edu.degree}>
+              <div className="flex h-full gap-5 rounded-3xl bg-primary-50 p-7 ring-1 ring-primary-100">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary-100 text-primary-700">
+                  <GraduationCap className="h-6 w-6" strokeWidth={1.8} />
+                </div>
+                <div>
+                  <p className="text-base font-bold text-ink-900">{edu.degree}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-ink-500">{edu.institution}</p>
+                </div>
+              </div>
+            </StaggerItem>
+          ))}
+        </Stagger>
+      </Section>
+
+      {/* Clinical Interests */}
+      <Section eyebrow="Scope of Practice" title="Areas of Clinical Interest">
+        <Stagger className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {profile.areas.map((area) => (
+            <StaggerItem key={area}>
+              <div className="flex h-full items-center gap-3 rounded-2xl bg-white p-4 shadow-soft ring-1 ring-ink-100">
+                <Stethoscope className="h-5 w-5 shrink-0 text-primary-600" strokeWidth={1.8} />
+                <span className="text-sm font-medium text-ink-700">{area}</span>
+              </div>
+            </StaggerItem>
+          ))}
+        </Stagger>
+      </Section>
+
+      {/* Research & Academic Contributions */}
+      <Section eyebrow="Scholarly Work" title="Research & Academic Contributions" className="bg-ink-50">
+        <Reveal className="mx-auto mt-12 max-w-3xl rounded-3xl bg-white p-8 shadow-soft ring-1 ring-ink-100 sm:p-10">
+          <div className="flex items-start gap-5">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent-50 text-accent-600">
+              <BookOpen className="h-6 w-6" strokeWidth={1.8} />
+            </div>
+            <p className="text-base leading-relaxed text-ink-500 sm:text-lg">{profile.researchNote}</p>
+          </div>
+        </Reveal>
+      </Section>
+
+      {/* Professional Affiliations & Editorial Contributions */}
+      <Section eyebrow="Membership & Editorial Role" title="Professional Affiliations & Editorial Contributions">
+        <Stagger className="mt-12 mx-auto max-w-4xl grid gap-5 sm:grid-cols-3">
+          {profile.affiliations?.map((aff) => (
+            <StaggerItem key={`${aff.name}-${aff.role}`}>
+              <div className="flex h-full flex-col rounded-3xl bg-white p-7 text-center shadow-soft ring-1 ring-ink-100">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-50 text-primary-700">
+                  <Award className="h-7 w-7" strokeWidth={1.7} />
+                </div>
+                <h3 className="mt-5 text-sm font-bold text-ink-900">{aff.name}</h3>
+                <span className="mt-2 inline-block w-fit mx-auto rounded-full bg-accent-50 px-3 py-1 text-xs font-semibold text-accent-700">{aff.role}</span>
+              </div>
+            </StaggerItem>
+          ))}
+        </Stagger>
+      </Section>
+
+      {/* Philosophy */}
+      <Section eyebrow="Treatment Philosophy" title="Restoring more than teeth" className="bg-ink-50">
+        <Reveal className="mx-auto max-w-3xl rounded-3xl bg-white p-8 text-center shadow-soft ring-1 ring-ink-100 sm:p-10">
+          <p className="text-base leading-relaxed text-ink-500 sm:text-lg">{profile.philosophy}</p>
+        </Reveal>
+      </Section>
+    </>
   );
 }

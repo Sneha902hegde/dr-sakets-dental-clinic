@@ -1,14 +1,19 @@
 export type DoctorProfileKey = 'saket' | 'sneha' | 'aheli';
 
+export type Affiliation = { name: string; role: string };
+
 export type DoctorProfile = {
   key: DoctorProfileKey;
   name: string;
   role: string;
   image?: string;
-  education?: string[];
+  education?: { degree: string; institution: string }[];
   intro: string;
+  introParagraphs?: string[];
   areas: string[];
   philosophy: string;
+  researchNote?: string;
+  affiliations?: Affiliation[];
   related: { label: string; page: string }[];
 };
 
@@ -26,15 +31,36 @@ export const doctorProfiles: Record<DoctorProfileKey, DoctorProfile> = {
   sneha: {
     key: 'sneha',
     name: 'Dr. Sneha Hegde',
-    role: 'Prosthodontist',
+    role: 'MDS – Prosthodontics | Prosthodontist',
     image: '/images/Prosthodontist_in_Aundh.jfif',
     education: [
-      'BDS – SDM College of Dental Sciences, Dharwad',
-      'MDS – Sri Hasanamba Dental College, Hassan, under RGUHS',
+      { degree: 'BDS', institution: 'SDM Dental College, Dharwad' },
+      { degree: 'MDS – Prosthodontics', institution: 'Sri Hasanamba Dental College, Hassan' },
     ],
-    intro: 'Dr. Sneha Hegde is a Prosthodontist specialising in the restoration and replacement of missing or damaged teeth. She brings a thoughtful, detail-focused approach to functional and aesthetic dental rehabilitation.',
-    areas: ['Crowns and bridges', 'Dentures', 'Implant-supported restorations', 'Aesthetic rehabilitation', 'Full-mouth rehabilitation', 'Replacement of missing teeth'],
-    philosophy: 'Dr. Sneha believes in personalised treatment plans that restore comfort, confidence and natural-looking function while respecting each patient’s needs and goals.',
+    intro: 'Dr. Sneha Hegde is a Prosthodontist with a keen interest in restoring smiles through comprehensive restorative and rehabilitative dentistry.',
+    introParagraphs: [
+      'She completed her Bachelor of Dental Surgery (BDS) from SDM Dental College, Dharwad, followed by her Master of Dental Surgery (MDS) from Sri Hasanamba Dental College, Hassan, specialising in Prosthodontics.',
+      'Her clinical interests encompass the restoration and replacement of missing, damaged and compromised teeth. Her areas of practice include crowns and bridges, complete and partial dentures, implant-supported prosthetic restorations, aesthetic rehabilitation and full-mouth rehabilitation.',
+      'She believes that successful prosthodontic treatment extends beyond replacing teeth. It involves restoring oral function, achieving aesthetic harmony and improving patient comfort through careful diagnosis, precision and individualised treatment planning.',
+      'As part of a multidisciplinary dental team, she values collaboration between specialties to provide comprehensive and well-coordinated patient care.',
+    ],
+    areas: [
+      'Fixed and Removable Prosthodontics',
+      'Crowns and Bridges',
+      'Complete and Partial Dentures',
+      'Implant-Supported Prosthetic Restorations',
+      'Aesthetic and Smile Rehabilitation',
+      'Full-Mouth Rehabilitation',
+      'Restoration of Worn and Damaged Teeth',
+    ],
+    philosophy: 'Successful prosthodontic treatment extends beyond replacing teeth — it involves restoring oral function, achieving aesthetic harmony and improving patient comfort through careful diagnosis, precision and individualised treatment planning.',
+    researchNote:
+      'Dr. Sneha Hegde has multiple publications to her credit, reflecting her involvement in academic research and her interest in contributing to the advancement of dental knowledge.',
+    affiliations: [
+      { name: 'Indian Prosthodontic Society (IPS)', role: 'Member' },
+      { name: 'Indian Dental Association (IDA), Pune West Branch', role: 'Active Member' },
+      { name: 'IDA Pune West Branch', role: 'Editor' },
+    ],
     related: [{ label: 'Crowns & Bridges', page: 'crowns-and-bridges' }, { label: 'Dentures', page: 'dentures' }, { label: 'Full Mouth Rehabilitation', page: 'full-mouth-rehabilitation' }],
   },
   aheli: {
