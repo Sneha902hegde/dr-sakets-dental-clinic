@@ -4,6 +4,8 @@ export type DoctorProfile = {
   key: DoctorProfileKey;
   name: string;
   role: string;
+  image?: string;
+  education?: string[];
   intro: string;
   areas: string[];
   philosophy: string;
@@ -15,6 +17,7 @@ export const doctorProfiles: Record<DoctorProfileKey, DoctorProfile> = {
     key: 'saket',
     name: 'Dr. Saket Sai Rallabhandi',
     role: 'Orthodontist',
+    image: '/images/Dr_Saket_Rallabhandi.jpg',
     intro: 'Dr. Saket Rallabhandi is an orthodontist and smile designer focused on creating confident smiles through advanced orthodontics, innovation, compassionate care and evidence-based dentistry.',
     areas: ['Braces and orthodontics', 'Clear aligner therapy', 'Dentofacial orthopedics', 'Complex malocclusions', 'Cleft and surgical orthodontics', 'Digital smile planning'],
     philosophy: 'Every plan begins with understanding the patient’s goals, concerns and comfort. Treatment is explained clearly and planned around long-term oral health.',
@@ -24,6 +27,11 @@ export const doctorProfiles: Record<DoctorProfileKey, DoctorProfile> = {
     key: 'sneha',
     name: 'Dr. Sneha Hegde',
     role: 'Prosthodontist',
+    image: '/images/Prosthodontist_in_Aundh.jfif',
+    education: [
+      'BDS – SDM College of Dental Sciences, Dharwad',
+      'MDS – Sri Hasanamba Dental College, Hassan, under RGUHS',
+    ],
     intro: 'Dr. Sneha Hegde is a Prosthodontist specialising in the restoration and replacement of missing or damaged teeth. She brings a thoughtful, detail-focused approach to functional and aesthetic dental rehabilitation.',
     areas: ['Crowns and bridges', 'Dentures', 'Implant-supported restorations', 'Aesthetic rehabilitation', 'Full-mouth rehabilitation', 'Replacement of missing teeth'],
     philosophy: 'Dr. Sneha believes in personalised treatment plans that restore comfort, confidence and natural-looking function while respecting each patient’s needs and goals.',

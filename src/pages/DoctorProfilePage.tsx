@@ -33,11 +33,19 @@ export default function DoctorProfilePage({ doctorKey }: DoctorProfilePageProps)
         <div className="pointer-events-none absolute inset-0 bg-grid opacity-40" />
         <div className="container-page relative grid items-center gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <Reveal className="mx-auto w-full max-w-sm lg:order-2">
-            <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-ink-100 via-stone-100 to-primary-50 shadow-card ring-1 ring-ink-100">
-              <div className="flex aspect-[4/5] items-center justify-center text-ink-300">
-                <UserRound className="h-20 w-20" strokeWidth={1.1} />
+            {profile.image ? (
+              <img
+                src={profile.image}
+                alt={`${profile.name}, ${profile.role}`}
+                className="aspect-[4/5] w-full rounded-[2rem] object-cover object-top shadow-card ring-1 ring-ink-100"
+              />
+            ) : (
+              <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-ink-100 via-stone-100 to-primary-50 shadow-card ring-1 ring-ink-100">
+                <div className="flex aspect-[4/5] items-center justify-center text-ink-300">
+                  <UserRound className="h-20 w-20" strokeWidth={1.1} />
+                </div>
               </div>
-            </div>
+            )}
           </Reveal>
           <Reveal className="lg:order-1">
             <span className="eyebrow">Our Team · {profile.role}</span>
@@ -67,6 +75,19 @@ export default function DoctorProfilePage({ doctorKey }: DoctorProfilePageProps)
         <>
           <Section eyebrow="Clinical focus" title={`Areas of expertise in ${profile.role.toLowerCase()}`} subtitle={profile.philosophy}>
             <ProfileAreas areas={profile.areas} />
+            {profile.education && (
+              <div className="mx-auto mt-12 max-w-3xl rounded-3xl bg-primary-50 p-7 ring-1 ring-primary-100 sm:p-9">
+                <h2 className="text-xl font-bold text-ink-900">Education</h2>
+                <ul className="mt-5 space-y-3">
+                  {profile.education.map((qualification) => (
+                    <li key={qualification} className="flex gap-3 text-sm leading-relaxed text-ink-600 sm:text-base">
+                      <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary-600" />
+                      <span>{qualification}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </Section>
           <Section eyebrow="A patient-centred approach" title="Care that is clear, considered and personal" className="bg-ink-50">
             <Reveal className="mx-auto max-w-3xl rounded-3xl bg-white p-8 text-center shadow-soft ring-1 ring-ink-100 sm:p-10">
