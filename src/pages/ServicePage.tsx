@@ -109,7 +109,7 @@ function Hero({ service }: { service: ServiceContent }) {
                 <p className="mt-2 text-lg font-semibold">Smile makeover result</p>
               </div>
             ) : service.image && service.key !== 'root-canal-treatment' ? (
-              <div className="relative z-10 max-w-sm rounded-2xl bg-black/30 p-5 text-white ring-1 ring-white/20 backdrop-blur">
+              <div className={`relative z-10 max-w-sm rounded-2xl bg-black/30 p-5 text-white ring-1 ring-white/20 backdrop-blur ${service.key === 'gum-treatment' ? 'self-start' : ''}`}>
                 <p className="mt-2 text-lg font-semibold">{service.imageLabel}</p>
               </div>
             ) : service.image ? null : (
