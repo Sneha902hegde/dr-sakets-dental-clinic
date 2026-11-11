@@ -92,11 +92,15 @@ function Hero({ service }: { service: ServiceContent }) {
                 />
               </div>
             ) : service.image ? (
-              <img src={service.image} alt={service.eyebrow} className="absolute inset-0 h-full w-full object-cover" />
+              <img
+                src={service.image}
+                alt={service.eyebrow}
+                className={`absolute inset-0 h-full w-full object-cover ${service.key === 'dental-implants' ? 'object-top' : ''}`}
+              />
             ) : (
               <div className="absolute inset-0 bg-dots opacity-10" />
             )}
-            {service.key !== 'smile-makeover' && (
+            {service.key !== 'smile-makeover' && service.key !== 'dental-implants' && (
               <div className="absolute right-8 top-8 flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white/80 backdrop-blur"><Stethoscope className="h-9 w-9" /></div>
             )}
             {service.key === 'smile-makeover' ? (
