@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import FloatingActions from './components/FloatingActions';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
+import DoctorProfilePage from './pages/DoctorProfilePage';
 import BracesPage from './pages/BracesPage';
 import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
@@ -17,6 +18,9 @@ import { services, type ServiceKey } from './data/services';
 const pathToPage = (rawPath: string): Page => {
   const path = rawPath.replace(/\/+$/, '') || '/';
   if (path === '/about') return 'about';
+  if (path === '/our-team/dr-saket') return 'our-team-dr-saket';
+  if (path === '/our-team/dr-sneha') return 'our-team-dr-sneha';
+  if (path === '/our-team/dr-aheli') return 'our-team-dr-aheli';
   if (path === '/braces') return 'braces';
   if (path === '/gallery') return 'gallery';
   if (path === '/contact') return 'contact';
@@ -28,6 +32,9 @@ const pathToPage = (rawPath: string): Page => {
 // Map a page to its clean URL path (e.g. "about" -> "/about").
 const pageToPath = (page: Page): string => {
   if (page === 'about') return '/about';
+  if (page === 'our-team-dr-saket') return '/our-team/dr-saket';
+  if (page === 'our-team-dr-sneha') return '/our-team/dr-sneha';
+  if (page === 'our-team-dr-aheli') return '/our-team/dr-aheli';
   if (page === 'braces') return '/braces';
   if (page === 'gallery') return '/gallery';
   if (page === 'contact') return '/contact';
@@ -86,6 +93,9 @@ export default function App() {
         <Navbar />
         <main className="flex-1">
           {page === 'about' ? <AboutPage />
+            : page === 'our-team-dr-saket' ? <DoctorProfilePage doctorKey="saket" />
+            : page === 'our-team-dr-sneha' ? <DoctorProfilePage doctorKey="sneha" />
+            : page === 'our-team-dr-aheli' ? <DoctorProfilePage doctorKey="aheli" />
             : page === 'braces' ? <BracesPage />
             : page === 'gallery' ? <GalleryPage />
             : page === 'contact' ? <ContactPage />

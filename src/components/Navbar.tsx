@@ -33,6 +33,12 @@ export default function Navbar() {
       navigate('home');
     } else if (to === '/about') {
       navigate('about');
+    } else if (to === '/our-team/dr-saket') {
+      navigate('our-team-dr-saket');
+    } else if (to === '/our-team/dr-sneha') {
+      navigate('our-team-dr-sneha');
+    } else if (to === '/our-team/dr-aheli') {
+      navigate('our-team-dr-aheli');
     } else if (to === '/braces') {
       navigate('braces');
     } else if (to === '/gallery') {
@@ -47,6 +53,9 @@ export default function Navbar() {
   const isActive = (to: string) => {
     if (to === '/') return page === 'home';
     if (to === '/about') return page === 'about';
+    if (to === '/our-team/dr-saket') return page === 'our-team-dr-saket';
+    if (to === '/our-team/dr-sneha') return page === 'our-team-dr-sneha';
+    if (to === '/our-team/dr-aheli') return page === 'our-team-dr-aheli';
     if (to === '/braces') return page === 'braces';
     if (to === '/gallery') return page === 'gallery';
     if (to === '/contact') return page === 'contact';
@@ -84,7 +93,7 @@ export default function Navbar() {
                 <button
                   onClick={() => handleNavClick(link.to)}
                   className={`flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-colors duration-300 ${
-                    page === 'braces'
+                    (isActive(link.to) || link.children?.some((child) => isActive(child.to) || child.children?.some((nestedChild) => isActive(nestedChild.to))))
                       ? 'bg-primary-50 text-primary-700'
                       : 'text-ink-600 hover:bg-primary-50 hover:text-primary-700'
                   }`}
@@ -95,18 +104,31 @@ export default function Navbar() {
                 <div className="invisible absolute left-0 top-full pt-2 opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100">
                   <ul className="min-w-[15rem] rounded-2xl bg-white p-2 shadow-card ring-1 ring-ink-100">
                     {link.children.map((child) => (
-                      <li key={child.to}>
+                      <li key={child.to} className={child.children ? 'group/sub relative' : ''}>
                         <button
                           onClick={() => handleNavClick(child.to)}
-                          className={`block w-full rounded-xl px-4 py-2.5 text-left text-sm font-medium transition-colors ${
-                            page === 'braces'
+                          className={`flex w-full items-center justify-between rounded-xl px-4 py-2.5 text-left text-sm font-medium transition-colors ${
+                            isActive(child.to) || child.children?.some((nestedChild) => isActive(nestedChild.to))
                               ? 'bg-primary-50 text-primary-700'
                               : 'text-ink-700 hover:bg-primary-50 hover:text-primary-700'
-                          }`
-                          }
+                          }`}
                         >
                           {child.label}
+                          {child.children && <ChevronDown className="h-3.5 w-3.5 -rotate-90" />}
                         </button>
+                        {child.children && (
+                          <div className="invisible absolute left-full top-0 pl-2 opacity-0 transition-all duration-300 group-hover/sub:visible group-hover/sub:opacity-100">
+                            <ul className="min-w-[15rem] rounded-2xl bg-white p-2 shadow-card ring-1 ring-ink-100">
+                              {child.children.map((nestedChild) => (
+                                <li key={nestedChild.to}>
+                                  <button onClick={() => handleNavClick(nestedChild.to)} className={`block w-full rounded-xl px-4 py-2.5 text-left text-sm font-medium transition-colors ${isActive(nestedChild.to) ? 'bg-primary-50 text-primary-700' : 'text-ink-700 hover:bg-primary-50 hover:text-primary-700'}`}>
+                                    {nestedChild.label}
+                                  </button>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
                       </li>
                     ))}
                   </ul>
@@ -171,13 +193,24 @@ export default function Navbar() {
                             <button
                               onClick={() => handleNavClick(child.to)}
                               className={`block w-full rounded-2xl px-4 py-3 text-left text-sm font-medium transition-colors ${
-                                page === 'braces'
+                                isActive(child.to) || child.children?.some((nestedChild) => isActive(nestedChild.to))
                                   ? 'bg-primary-50 text-primary-700'
                                   : 'text-ink-700 hover:bg-primary-50 hover:text-primary-700'
                               }`}
                             >
                               {child.label}
                             </button>
+                            {child.children && (
+                              <ul className="ml-3 mt-1 flex flex-col gap-1 border-l border-ink-100 pl-3">
+                                {child.children.map((nestedChild) => (
+                                  <li key={nestedChild.to}>
+                                    <button onClick={() => handleNavClick(nestedChild.to)} className={`block w-full rounded-2xl px-4 py-2.5 text-left text-sm font-medium transition-colors ${isActive(nestedChild.to) ? 'bg-primary-50 text-primary-700' : 'text-ink-600 hover:bg-primary-50 hover:text-primary-700'}`}>
+                                      {nestedChild.label}
+                                    </button>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
                           </li>
                         ))}
                       </ul>

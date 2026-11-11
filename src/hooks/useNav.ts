@@ -3,6 +3,9 @@ import { createContext, useContext } from 'react';
 export type Page =
   | 'home'
   | 'about'
+  | 'our-team-dr-saket'
+  | 'our-team-dr-sneha'
+  | 'our-team-dr-aheli'
   | 'braces'
   | 'gallery'
   | 'contact'

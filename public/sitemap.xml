@@ -11,6 +11,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dr-sakets-dental-clinic.vercel.app/our-team/dr-saket</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dr-sakets-dental-clinic.vercel.app/our-team/dr-sneha</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dr-sakets-dental-clinic.vercel.app/our-team/dr-aheli</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dr-sakets-dental-clinic.vercel.app/braces</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>

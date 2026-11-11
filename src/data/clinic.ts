@@ -47,12 +47,27 @@ export const whatsappLink = (message: string) =>
 
 export const callLink = clinic.phoneHref;
 
-type NavChild = { label: string; to: string };
-type NavLink = { label: string; to: string; children?: NavChild[] };
+type NavChild = { label: string; to: string; children?: NavChild[] };
+type NavLink = NavChild;
 
 export const navLinks: NavLink[] = [
   { label: 'Home', to: '/' },
-  { label: 'About', to: '/about' },
+  {
+    label: 'About Us',
+    to: '/about',
+    children: [
+      { label: 'Our Clinic', to: '/about' },
+      {
+        label: 'Our Team',
+        to: '/our-team/dr-saket',
+        children: [
+          { label: 'Dr. Saket Rallabhandi', to: '/our-team/dr-saket' },
+          { label: 'Dr. Sneha Hegde', to: '/our-team/dr-sneha' },
+          { label: 'Dr. Aheli Pal', to: '/our-team/dr-aheli' },
+        ],
+      },
+    ],
+  },
   {
     label: 'Services',
     to: '/#services',

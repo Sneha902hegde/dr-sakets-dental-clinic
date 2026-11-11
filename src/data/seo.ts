@@ -27,7 +27,7 @@ const brand = clinic.shortName; // "Dr. Saket's Dental Clinic"
 const clip = (text: string, max = 158) =>
   text.length <= max ? text : `${text.slice(0, max - 1).trimEnd()}…`;
 
-const staticSeo: Record<'home' | 'about' | 'braces' | 'gallery' | 'contact', PageSeo> = {
+const staticSeo: Record<'home' | 'about' | 'our-team-dr-saket' | 'our-team-dr-sneha' | 'our-team-dr-aheli' | 'braces' | 'gallery' | 'contact', PageSeo> = {
   home: {
     title: `${clinic.name} | Dentist & Orthodontist in Aundh, Pune`,
     description:
@@ -35,10 +35,28 @@ const staticSeo: Record<'home' | 'about' | 'braces' | 'gallery' | 'contact', Pag
     path: '/',
   },
   about: {
-    title: `About Dr. Saket Rallabhandi | Orthodontist in Aundh, Pune`,
+    title: `Our Clinic | Multispeciality Dental Clinic in Aundh, Pune`,
     description:
-      'Meet Dr. Saket Rallabhandi (MDS, F-PFA USA), an orthodontist in Aundh, Pune offering warm, patient-first care with precision smile design and modern dentistry.',
+      'Discover Dr. Saket’s multispeciality dental clinic in Aundh, Pune, where orthodontic, restorative and surgical expertise come together for thoughtful patient care.',
     path: '/about',
+  },
+  'our-team-dr-saket': {
+    title: `Dr. Saket Rallabhandi | Orthodontist in Aundh, Pune`,
+    description:
+      'Meet Dr. Saket Rallabhandi, an orthodontist in Aundh, Pune specialising in braces, clear aligners, dentofacial orthopedics and patient-centred smile care.',
+    path: '/our-team/dr-saket',
+  },
+  'our-team-dr-sneha': {
+    title: `Dr. Sneha Hegde | Prosthodontist in Aundh, Pune`,
+    description:
+      'Meet Dr. Sneha Hegde, a prosthodontist supporting crowns, bridges, dentures, implant restorations and aesthetic rehabilitation at our Aundh clinic.',
+    path: '/our-team/dr-sneha',
+  },
+  'our-team-dr-aheli': {
+    title: `Dr. Aheli Pal | Oral & Maxillofacial Surgeon in Pune`,
+    description:
+      'Meet Dr. Aheli Pal, a Board-Certified Oral and Maxillofacial Surgeon with an MDS and clinical interests in oral surgery, impacted teeth and jaw conditions.',
+    path: '/our-team/dr-aheli',
   },
   braces: {
     title: `Braces & Orthodontics in Aundh, Pune | ${brand}`,
