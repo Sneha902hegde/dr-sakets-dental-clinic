@@ -108,11 +108,11 @@ function Hero({ service }: { service: ServiceContent }) {
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/70">Before & after</p>
                 <p className="mt-2 text-lg font-semibold">Smile makeover result</p>
               </div>
-            ) : service.image ? (
+            ) : service.image && service.key !== 'root-canal-treatment' ? (
               <div className="relative z-10 max-w-sm rounded-2xl bg-black/30 p-5 text-white ring-1 ring-white/20 backdrop-blur">
                 <p className="mt-2 text-lg font-semibold">{service.imageLabel}</p>
               </div>
-            ) : (
+            ) : service.image ? null : (
               <div className="relative max-w-sm rounded-2xl bg-white/10 p-5 text-white ring-1 ring-white/20 backdrop-blur">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/60">Image placeholder</p>
                 <p className="mt-2 text-lg font-semibold">{service.imageLabel}</p>
@@ -120,6 +120,11 @@ function Hero({ service }: { service: ServiceContent }) {
               </div>
             )}
           </div>
+          {service.key === 'root-canal-treatment' && (
+            <div className="mt-4 max-w-sm rounded-2xl bg-white p-5 text-ink-900 shadow-soft ring-1 ring-ink-100">
+              <p className="text-lg font-semibold">{service.imageLabel}</p>
+            </div>
+          )}
         </motion.div>
       </div>
     </section>
