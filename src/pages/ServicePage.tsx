@@ -95,7 +95,7 @@ function Hero({ service }: { service: ServiceContent }) {
               <img
                 src={service.image}
                 alt={service.eyebrow}
-                className={`absolute inset-0 h-full w-full object-cover ${service.key === 'dental-implants' ? 'object-top' : ''}`}
+                className={`absolute left-0 w-full object-cover ${service.key === 'dental-implants' ? '-top-1/4 h-[125%] object-bottom' : 'inset-0 h-full'}`}
               />
             ) : (
               <div className="absolute inset-0 bg-dots opacity-10" />
