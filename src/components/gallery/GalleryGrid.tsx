@@ -122,8 +122,8 @@ export default function GalleryGrid() {
                     loading="lazy"
                   />
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-ink-900/70 via-ink-900/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <figcaption className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 p-5 opacity-0 transition-all duration-300 group-hover:opacity-100">
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-900/70 via-ink-900/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 p-5 opacity-0 transition-all duration-300 group-hover:opacity-100">
                   <span className="inline-flex items-center gap-2 text-sm font-semibold text-white">
                     <Camera className="h-4 w-4 text-accent-300" />
                     {item.label}
