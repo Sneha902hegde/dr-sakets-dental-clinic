@@ -53,7 +53,7 @@ export const galleryItems: GalleryItem[] = [
   { id: 'smile-4', category: 'smile-transformations', label: 'Smile Makeover', alt: 'Before and after smile makeover', image: '/images/services/smile_make_over_in_aundh.jpeg', before: '/images/services/smile_make_over_in_aundh.jpeg', after: '/images/services/smile_designing_post_in_aundh.jpeg', beforeMidline: 0.46, afterMidline: 0.46, height: 'h-64 sm:h-72' },
 
   // Team
-  { id: 'team-doctor', category: 'team', label: 'Doctor Portrait', alt: 'Dr. Saket Rallabhandi portrait', image: px(5452201), span: 'sm:row-span-2', height: 'h-72 sm:h-[34rem]' },
+  { id: 'team-doctor', category: 'team', label: 'Dr. Saket Sai Rallabhandi', alt: 'Dr. Saket Sai Rallabhandi, Orthodontist', image: '/images/Dr_Saket_Rallabhandi.jpg', span: 'sm:row-span-2', height: 'h-72 sm:h-[34rem]' },
   { id: 'team-group', category: 'team', label: 'Team Photo', alt: 'Clinic team photo', image: px(6234552), height: 'h-64 sm:h-72' },
   { id: 'team-interaction', category: 'team', label: 'Patient Interaction', alt: 'Doctor with patient', image: px(4173251), height: 'h-64 sm:h-72' },
 
