@@ -9,6 +9,7 @@ import Expertise from '../components/about/Expertise';
 import WhyTrust from '../components/about/WhyTrust';
 import Memberships from '../components/about/Memberships';
 import BeyondDentistry from '../components/about/BeyondDentistry';
+import TeamSection from '../components/about/TeamSection';
 import AboutCTA from '../components/about/AboutCTA';
 import Contact from '../components/Contact';
 
@@ -29,6 +30,7 @@ export default function AboutPage() {
       <WhyTrust />
       <Memberships />
       <BeyondDentistry />
+      <TeamSection />
       <AboutCTA />
       <Contact />
     </>
