@@ -8,6 +8,7 @@ import {
   type GalleryItem,
 } from '../../data/gallery';
 import { Reveal } from '../Reveal';
+import BeforeAfterSlider from '../BeforeAfterSlider';
 
 type FilterId = GalleryCategory | 'all';
 
@@ -97,12 +98,30 @@ export default function GalleryGrid() {
                 className={`group relative cursor-pointer overflow-hidden rounded-3xl shadow-soft ring-1 ring-ink-100 ${item.span ?? ''}`}
                 onClick={() => openLightbox(item)}
               >
-                <img
-                  src={item.image}
-                  alt={item.alt}
-                  className={`${item.height ?? 'h-64 sm:h-72'} w-full object-cover transition-transform duration-500 group-hover:scale-110`}
-                  loading="lazy"
-                />
+                {item.before && item.after ? (
+                  <div
+                    className={`${item.height ?? 'h-64 sm:h-72'} w-full`}
+                    onClick={(event) => event.stopPropagation()}
+                  >
+                    <BeforeAfterSlider
+                      before={item.before}
+                      after={item.after}
+                      beforeAlt={`Before — ${item.alt}`}
+                      afterAlt={`After — ${item.alt}`}
+                      beforeMidline={item.beforeMidline ?? 0.5}
+                      afterMidline={item.afterMidline ?? 0.5}
+                      afterZoom={item.afterZoom}
+                      className="h-full"
+                    />
+                  </div>
+                ) : (
+                  <img
+                    src={item.image}
+                    alt={item.alt}
+                    className={`${item.height ?? 'h-64 sm:h-72'} w-full object-cover transition-transform duration-500 group-hover:scale-110`}
+                    loading="lazy"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-ink-900/70 via-ink-900/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <figcaption className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 p-5 opacity-0 transition-all duration-300 group-hover:opacity-100">
                   <span className="inline-flex items-center gap-2 text-sm font-semibold text-white">

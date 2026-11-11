@@ -15,6 +15,11 @@ export type GalleryItem = {
   span?: string;
   /** Tailwind height class for varied tile heights */
   height?: string;
+  before?: string;
+  after?: string;
+  beforeMidline?: number;
+  afterMidline?: number;
+  afterZoom?: number;
 };
 
 export const galleryFilters: { id: GalleryCategory | 'all'; label: string }[] = [
@@ -41,10 +46,10 @@ export const galleryItems: GalleryItem[] = [
   { id: 'tech-equipment', category: 'technology', label: 'System B Obturation System', alt: 'System B obturation system equipment', image: '/images/gallery/System_B_obturation_system.jpeg', height: 'h-64 sm:h-72' },
 
   // Smile Transformations
-  { id: 'smile-1', category: 'smile-transformations', label: 'Orthodontic Case', alt: 'Orthodontic before and after', image: px(6597709), span: 'sm:col-span-2', height: 'h-72 sm:h-80' },
-  { id: 'smile-2', category: 'smile-transformations', label: 'Cosmetic Case', alt: 'Cosmetic smile makeover', image: px(1571460), height: 'h-64 sm:h-72' },
-  { id: 'smile-3', category: 'smile-transformations', label: 'Aligner Case', alt: 'Clear aligner transformation', image: px(4173251), height: 'h-64 sm:h-72' },
-  { id: 'smile-4', category: 'smile-transformations', label: 'Crowding Corrected', alt: 'Crowding corrected', image: px(6234600), height: 'h-64 sm:h-72' },
+  { id: 'smile-1', category: 'smile-transformations', label: 'Overbite Corrected', alt: 'Before and after orthodontic treatment for an overbite', image: '/images/braces/Before_overbite.jpg', before: '/images/braces/Before_overbite.jpg', after: '/images/braces/After_overbite copy.JPG', beforeMidline: 0.5, afterMidline: 0.5, afterZoom: 1.35, span: 'sm:col-span-2', height: 'h-72 sm:h-80' },
+  { id: 'smile-2', category: 'smile-transformations', label: 'Crowding Corrected', alt: 'Before and after orthodontic treatment for crowding', image: '/images/braces/deep_bite_correction.jpeg', before: '/images/braces/deep_bite_correction.jpeg', after: '/images/braces/braces_doctor_pune.jpg', beforeMidline: 0.505, afterMidline: 0.6, height: 'h-64 sm:h-72' },
+  { id: 'smile-3', category: 'smile-transformations', label: 'Spacing Closed', alt: 'Before and after orthodontic treatment closing spacing', image: '/images/braces/IMG_1673_copy.jpg', before: '/images/braces/IMG_1673_copy.jpg', after: '/images/braces/IMG_8365_copy.jpg', beforeMidline: 0.5, afterMidline: 0.5, height: 'h-64 sm:h-72' },
+  { id: 'smile-4', category: 'smile-transformations', label: 'Smile Makeover', alt: 'Before and after smile makeover', image: '/images/services/smile_make_over_in_aundh.jpeg', before: '/images/services/smile_make_over_in_aundh.jpeg', after: '/images/services/smile_designing_post_in_aundh.jpeg', beforeMidline: 0.46, afterMidline: 0.46, height: 'h-64 sm:h-72' },
 
   // Team
   { id: 'team-doctor', category: 'team', label: 'Doctor Portrait', alt: 'Dr. Saket Rallabhandi portrait', image: px(5452201), span: 'sm:row-span-2', height: 'h-72 sm:h-[34rem]' },
