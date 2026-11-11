@@ -6,6 +6,7 @@ type Consultant = {
   name: string;
   role: string;
   bio: string;
+  image?: string;
 };
 
 const consultants: Consultant[] = [
@@ -17,6 +18,7 @@ const consultants: Consultant[] = [
   {
     name: 'Dr. Sneha Hegde',
     role: 'Prosthodontist',
+    image: '/images/Prosthodontist_in_Aundh.jfif',
     bio: 'Dr. Sneha Hegde is a Prosthodontist specialising in the restoration and replacement of missing or damaged teeth. Her areas of expertise include crowns, bridges, dentures, implant-supported restorations and full-mouth rehabilitation. With a keen eye for detail and a focus on functional and aesthetic outcomes, she believes in creating personalised treatment plans that restore comfort, confidence and natural-looking smiles.',
   },
   {
@@ -50,13 +52,21 @@ export default function TeamSection() {
         {consultants.map((consultant, index) => (
           <Reveal key={consultant.name} delay={index * 0.06} className="h-full">
             <article className="grid h-full gap-6 rounded-3xl bg-white p-5 shadow-soft ring-1 ring-ink-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-card sm:p-6 md:grid-cols-[132px_1fr] md:items-start">
-              <div
-                role="img"
-                aria-label="Consultant portrait placeholder"
-                className="flex aspect-[4/5] w-full items-center justify-center rounded-2xl bg-gradient-to-br from-ink-100 via-stone-100 to-primary-50 text-ink-300 ring-1 ring-ink-100"
-              >
-                <UserRound className="h-12 w-12" strokeWidth={1.25} />
-              </div>
+              {consultant.image ? (
+                <img
+                  src={consultant.image}
+                  alt={consultant.name}
+                  className="aspect-[4/5] w-full rounded-2xl object-cover object-top ring-1 ring-ink-100"
+                />
+              ) : (
+                <div
+                  role="img"
+                  aria-label="Consultant portrait placeholder"
+                  className="flex aspect-[4/5] w-full items-center justify-center rounded-2xl bg-gradient-to-br from-ink-100 via-stone-100 to-primary-50 text-ink-300 ring-1 ring-ink-100"
+                >
+                  <UserRound className="h-12 w-12" strokeWidth={1.25} />
+                </div>
+              )}
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary-600">{consultant.role}</p>
                 <h3 className="mt-2 text-xl font-bold leading-tight text-ink-900">{consultant.name}</h3>
