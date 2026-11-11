@@ -67,6 +67,7 @@ export const doctorProfiles: Record<DoctorProfileKey, DoctorProfile> = {
     key: 'aheli',
     name: 'Dr. Aheli Pal',
     role: 'Oral & Maxillofacial Surgeon',
+    image: '/images/about/oral_surgeon_in_aundh,_nagras_road.jpeg',
     intro: 'Dr. Aheli Pal is a Board-Certified Oral and Maxillofacial Surgeon with an MDS in Oral & Maxillofacial Surgery from Datta Meghe Institute of Medical Sciences, Wardha.',
     areas: ['Impacted teeth', 'Oral surgical conditions', 'Facial trauma', 'Jaw-related conditions', 'Conditions affecting facial structures', 'Oral and maxillofacial surgical care'],
     philosophy: 'Dr. Aheli brings a thoughtful, patient-centred approach to surgical care, with clear guidance and careful attention to each patient’s concerns.',
