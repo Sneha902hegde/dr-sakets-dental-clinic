@@ -91,6 +91,17 @@ function Hero({ service }: { service: ServiceContent }) {
                   className="h-full w-full"
                 />
               </div>
+            ) : service.key === 'cosmetic-dentistry' ? (
+              <div className="absolute inset-0 z-0 grid grid-cols-2 gap-1 bg-white p-1">
+                <div className="relative overflow-hidden rounded-l-[1.75rem]">
+                  <img src="/images/services/smile_make_over_in_aundh.jpeg" alt="Before cosmetic dentistry treatment" className="h-full w-full object-cover" />
+                  <span className="absolute bottom-4 left-4 rounded-full bg-ink-900/75 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur">Before</span>
+                </div>
+                <div className="relative overflow-hidden rounded-r-[1.75rem]">
+                  <img src="/images/services/smile_designing_post_in_aundh.jpeg" alt="After cosmetic dentistry treatment" className="h-full w-full object-cover" />
+                  <span className="absolute bottom-4 left-4 rounded-full bg-primary-800/85 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur">After</span>
+                </div>
+              </div>
             ) : service.image ? (
               <img
                 src={service.image}
@@ -100,7 +111,7 @@ function Hero({ service }: { service: ServiceContent }) {
             ) : (
               <div className="absolute inset-0 bg-dots opacity-10" />
             )}
-            {service.key !== 'smile-makeover' && service.key !== 'dental-implants' && (
+            {service.key !== 'smile-makeover' && service.key !== 'dental-implants' && service.key !== 'cosmetic-dentistry' && (
               <div className="absolute right-8 top-8 flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white/80 backdrop-blur"><Stethoscope className="h-9 w-9" /></div>
             )}
             {service.key === 'smile-makeover' ? (
@@ -108,7 +119,7 @@ function Hero({ service }: { service: ServiceContent }) {
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/70">Before & after</p>
                 <p className="mt-2 text-lg font-semibold">Smile makeover result</p>
               </div>
-            ) : service.image && service.key !== 'root-canal-treatment' ? (
+            ) : service.key === 'cosmetic-dentistry' ? null : service.image && service.key !== 'root-canal-treatment' ? (
               <div className={`relative z-10 max-w-sm rounded-2xl bg-black/30 p-5 text-white ring-1 ring-white/20 backdrop-blur ${service.key === 'gum-treatment' ? 'self-start' : ''}`}>
                 <p className="mt-2 text-lg font-semibold">{service.imageLabel}</p>
               </div>
