@@ -32,9 +32,6 @@ export const galleryFilters: { id: GalleryCategory | 'all'; label: string }[] = 
   { id: 'events', label: 'Events & CE' },
 ];
 
-const px = (id: number) =>
-  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=900`;
-
 export const galleryItems: GalleryItem[] = [
   // Clinic
   { id: 'clinic-reception', category: 'clinic', label: 'Reception Area', alt: 'Reception area at Dr. Saket\'s Dental Clinic', image: '/images/clinic-photos/Reception_Area.jpeg', span: 'sm:col-span-2', height: 'h-72 sm:h-80' },
@@ -54,8 +51,6 @@ export const galleryItems: GalleryItem[] = [
 
   // Team
   { id: 'team-doctor', category: 'team', label: 'Dr. Saket Sai Rallabhandi', alt: 'Dr. Saket Sai Rallabhandi, Orthodontist', image: '/images/Dr_Saket_Rallabhandi.jpg', span: 'sm:row-span-2', height: 'h-72 sm:h-[34rem]' },
-  { id: 'team-group', category: 'team', label: 'Team Photo', alt: 'Clinic team photo', image: px(6234552), height: 'h-64 sm:h-72' },
-  { id: 'team-interaction', category: 'team', label: 'Patient Interaction', alt: 'Doctor with patient', image: px(4173251), height: 'h-64 sm:h-72' },
 
   // Events & Continuing Education
   {
