@@ -78,7 +78,7 @@ function Hero({ service }: { service: ServiceContent }) {
           <p className="mt-6 text-sm font-medium text-primary-700">Serving families in Aundh and across Pune</p>
         </motion.div>
         <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.15 }} className="relative">
-          <div className={`relative flex min-h-[22rem] items-end overflow-hidden rounded-[2rem] bg-gradient-to-br ${service.accent} p-7 shadow-card sm:min-h-[30rem]`}>
+          <div className={`relative flex min-h-[22rem] items-end overflow-hidden rounded-[2rem] bg-gradient-to-br ${service.accent} p-7 shadow-card sm:min-h-[30rem] ${service.key === 'preventive-dentistry' ? 'bg-white' : ''}`}>
             {service.key === 'smile-makeover' ? (
               <div className="absolute inset-0 z-0">
                 <BeforeAfterSlider
@@ -106,12 +106,12 @@ function Hero({ service }: { service: ServiceContent }) {
               <img
                 src={service.image}
                 alt={service.eyebrow}
-                className={`absolute left-0 w-full object-cover ${service.key === 'dental-implants' ? '-top-1/4 h-[125%] object-bottom' : 'inset-0 h-full'}`}
+                className={`absolute left-0 w-full ${service.key === 'preventive-dentistry' ? 'inset-0 h-full object-contain' : `object-cover ${service.key === 'dental-implants' ? '-top-1/4 h-[125%] object-bottom' : 'inset-0 h-full'}`}`}
               />
             ) : (
               <div className="absolute inset-0 bg-dots opacity-10" />
             )}
-            {service.key !== 'smile-makeover' && service.key !== 'dental-implants' && service.key !== 'cosmetic-dentistry' && (
+            {service.key !== 'smile-makeover' && service.key !== 'dental-implants' && service.key !== 'cosmetic-dentistry' && service.key !== 'preventive-dentistry' && (
               <div className="absolute right-8 top-8 flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white/80 backdrop-blur"><Stethoscope className="h-9 w-9" /></div>
             )}
             {service.key === 'smile-makeover' ? (
