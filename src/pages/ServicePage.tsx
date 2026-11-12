@@ -78,7 +78,7 @@ function Hero({ service }: { service: ServiceContent }) {
           <p className="mt-6 text-sm font-medium text-primary-700">Serving families in Aundh and across Pune</p>
         </motion.div>
         <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.15 }} className="relative">
-          <div className={`relative flex min-h-[22rem] items-end overflow-hidden rounded-[2rem] bg-gradient-to-br ${service.accent} p-7 shadow-card sm:min-h-[30rem] ${service.key === 'preventive-dentistry' ? 'bg-white' : ''}`}>
+          <div className={`relative flex min-h-[22rem] items-end overflow-hidden rounded-[2rem] bg-gradient-to-br ${service.accent} p-7 shadow-card sm:min-h-[30rem] ${service.key === 'preventive-dentistry' || service.key === 'cosmetic-dentistry' ? 'bg-white' : ''}`}>
             {service.key === 'smile-makeover' ? (
               <div className="absolute inset-0 z-0">
                 <BeforeAfterSlider
@@ -92,15 +92,8 @@ function Hero({ service }: { service: ServiceContent }) {
                 />
               </div>
             ) : service.key === 'cosmetic-dentistry' ? (
-              <div className="absolute inset-0 z-0 grid grid-cols-2 gap-1 bg-white p-1">
-                <div className="relative overflow-hidden rounded-l-[1.75rem]">
-                  <img src="/images/services/smile_make_over_in_aundh.jpeg" alt="Before cosmetic dentistry treatment" className="h-full w-full object-cover" />
-                  <span className="absolute bottom-4 left-4 rounded-full bg-ink-900/75 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur">Before</span>
-                </div>
-                <div className="relative overflow-hidden rounded-r-[1.75rem]">
-                  <img src="/images/services/smile_designing_post_in_aundh.jpeg" alt="After cosmetic dentistry treatment" className="h-full w-full object-cover" />
-                  <span className="absolute bottom-4 left-4 rounded-full bg-primary-800/85 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur">After</span>
-                </div>
+              <div className="absolute inset-0 z-0 flex items-center justify-center bg-white p-4 sm:p-6">
+                <img src={service.image} alt="Cosmetic dentistry before and after result" className="h-full w-full object-contain" />
               </div>
             ) : service.image ? (
               <img
