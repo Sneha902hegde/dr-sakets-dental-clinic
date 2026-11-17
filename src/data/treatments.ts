@@ -19,7 +19,7 @@ export const orthodonticsIntro = {
     { title: 'Improved Function', text: 'Make chewing, biting and speech easier and more efficient.' },
     { title: 'Improved Confidence', text: 'A straighter smile helps you feel comfortable in every moment.' },
   ],
-  image: '/images/consultation.jpeg',
+  image: '/images/braces/Braces_treatment_in_Pune.jpeg',
 };
 
 export const conditions = [

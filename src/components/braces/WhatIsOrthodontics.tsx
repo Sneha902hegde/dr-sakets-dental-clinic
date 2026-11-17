@@ -14,11 +14,10 @@ export default function WhatIsOrthodontics() {
               <div className="relative overflow-hidden rounded-[2rem] shadow-card ring-1 ring-ink-100">
                 <img
                   src={orthodonticsIntro.image}
-                  alt="Orthodontic consultation at Dr. Saket's Dental Clinic"
-                  className="h-[24rem] w-full object-cover"
+                  alt="Gentle and guided orthodontic tooth movement"
+                  className="h-[24rem] w-full bg-white object-contain"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink-900/25 via-transparent to-transparent" />
               </div>
               <div className="absolute -bottom-5 left-1/2 w-[85%] -translate-x-1/2 rounded-2xl bg-white/95 px-5 py-4 text-center shadow-card ring-1 ring-ink-100 backdrop-blur">
                 <p className="text-sm font-bold text-ink-900">Gentle, guided tooth movement</p>
