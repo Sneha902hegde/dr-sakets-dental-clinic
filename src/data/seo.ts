@@ -27,7 +27,7 @@ const brand = clinic.shortName; // "Dr. Saket's Dental Clinic"
 const clip = (text: string, max = 158) =>
   text.length <= max ? text : `${text.slice(0, max - 1).trimEnd()}…`;
 
-const staticSeo: Record<'home' | 'about' | 'our-team-dr-saket' | 'our-team-dr-sneha' | 'our-team-dr-aheli' | 'braces' | 'gallery' | 'contact', PageSeo> = {
+const staticSeo: Record<'home' | 'about' | 'our-team-dr-saket' | 'our-team-dr-sneha' | 'our-team-dr-aheli' | 'our-consultants' | 'braces' | 'gallery' | 'contact', PageSeo> = {
   home: {
     title: `${clinic.name} | Dentist & Orthodontist in Aundh, Pune`,
     description:
@@ -57,6 +57,12 @@ const staticSeo: Record<'home' | 'about' | 'our-team-dr-saket' | 'our-team-dr-sn
     description:
       'Meet Dr. Aheli Pal, a Board-Certified Oral and Maxillofacial Surgeon with an MDS and clinical interests in oral surgery, impacted teeth and jaw conditions.',
     path: '/our-team/dr-aheli',
+  },
+  'our-consultants': {
+    title: `Our Consultants | ${brand}, Aundh, Pune`,
+    description:
+      'Meet the consultant pedodontist, endodontist and oral surgeon supporting comprehensive dental care at Dr. Saket’s clinic in Aundh, Pune.',
+    path: '/our-consultants',
   },
   braces: {
     title: `Braces & Orthodontics in Aundh, Pune | ${brand}`,

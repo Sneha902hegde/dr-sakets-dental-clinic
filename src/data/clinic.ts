@@ -63,9 +63,9 @@ export const navLinks: NavLink[] = [
         children: [
           { label: 'Dr. Saket Rallabhandi', to: '/our-team/dr-saket' },
           { label: 'Dr. Sneha Hegde', to: '/our-team/dr-sneha' },
-          { label: 'Dr. Aheli Pal', to: '/our-team/dr-aheli' },
         ],
       },
+      { label: 'Our Consultants', to: '/our-consultants' },
     ],
   },
   {

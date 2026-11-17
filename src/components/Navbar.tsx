@@ -39,6 +39,8 @@ export default function Navbar() {
       navigate('our-team-dr-sneha');
     } else if (to === '/our-team/dr-aheli') {
       navigate('our-team-dr-aheli');
+    } else if (to === '/our-consultants') {
+      navigate('our-consultants');
     } else if (to === '/braces') {
       navigate('braces');
     } else if (to === '/gallery') {
@@ -56,6 +58,7 @@ export default function Navbar() {
     if (to === '/our-team/dr-saket') return page === 'our-team-dr-saket';
     if (to === '/our-team/dr-sneha') return page === 'our-team-dr-sneha';
     if (to === '/our-team/dr-aheli') return page === 'our-team-dr-aheli';
+    if (to === '/our-consultants') return page === 'our-consultants';
     if (to === '/braces') return page === 'braces';
     if (to === '/gallery') return page === 'gallery';
     if (to === '/contact') return page === 'contact';

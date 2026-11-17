@@ -6,6 +6,7 @@ export type Page =
   | 'our-team-dr-saket'
   | 'our-team-dr-sneha'
   | 'our-team-dr-aheli'
+  | 'our-consultants'
   | 'braces'
   | 'gallery'
   | 'contact'

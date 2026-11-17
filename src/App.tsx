@@ -5,6 +5,7 @@ import FloatingActions from './components/FloatingActions';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import DoctorProfilePage from './pages/DoctorProfilePage';
+import ConsultantsPage from './pages/ConsultantsPage';
 import BracesPage from './pages/BracesPage';
 import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
@@ -21,6 +22,7 @@ const pathToPage = (rawPath: string): Page => {
   if (path === '/our-team/dr-saket') return 'our-team-dr-saket';
   if (path === '/our-team/dr-sneha') return 'our-team-dr-sneha';
   if (path === '/our-team/dr-aheli') return 'our-team-dr-aheli';
+  if (path === '/our-consultants') return 'our-consultants';
   if (path === '/braces') return 'braces';
   if (path === '/gallery') return 'gallery';
   if (path === '/contact') return 'contact';
@@ -35,6 +37,7 @@ const pageToPath = (page: Page): string => {
   if (page === 'our-team-dr-saket') return '/our-team/dr-saket';
   if (page === 'our-team-dr-sneha') return '/our-team/dr-sneha';
   if (page === 'our-team-dr-aheli') return '/our-team/dr-aheli';
+  if (page === 'our-consultants') return '/our-consultants';
   if (page === 'braces') return '/braces';
   if (page === 'gallery') return '/gallery';
   if (page === 'contact') return '/contact';
@@ -96,6 +99,7 @@ export default function App() {
             : page === 'our-team-dr-saket' ? <DoctorProfilePage doctorKey="saket" />
             : page === 'our-team-dr-sneha' ? <DoctorProfilePage doctorKey="sneha" />
             : page === 'our-team-dr-aheli' ? <DoctorProfilePage doctorKey="aheli" />
+            : page === 'our-consultants' ? <ConsultantsPage />
             : page === 'braces' ? <BracesPage />
             : page === 'gallery' ? <GalleryPage />
             : page === 'contact' ? <ContactPage />

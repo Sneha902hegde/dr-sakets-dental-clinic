@@ -21,12 +21,6 @@ const teamProfiles = [
     image: '/images/Prosthodontist_in_Aundh.jfif',
     page: 'our-team-dr-sneha' as Page,
   },
-  {
-    name: 'Dr. Aheli Pal',
-    role: 'Oral & Maxillofacial Surgeon',
-    text: 'Surgical consultation for impacted teeth, oral surgical conditions, facial trauma and jaw-related concerns.',
-    page: 'our-team-dr-aheli' as Page,
-  },
 ];
 
 const principles = [
@@ -112,7 +106,7 @@ export default function AboutPage() {
       </Section>
 
       <Section id="team" eyebrow="Meet our team" title="The people behind every smile" subtitle="Explore the individual expertise that supports our clinic’s multidisciplinary approach." className="bg-ink-50">
-        <div className="mt-12 grid gap-5 lg:grid-cols-3">
+        <div className="mx-auto mt-12 grid max-w-4xl gap-5 lg:grid-cols-2">
           {teamProfiles.map((profile, index) => (
             <Reveal key={profile.page} delay={index * 0.08} className="h-full">
               <button onClick={() => navigate(profile.page)} className="group flex h-full w-full flex-col rounded-3xl bg-white p-6 text-left shadow-soft ring-1 ring-ink-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
@@ -133,6 +127,11 @@ export default function AboutPage() {
             </Reveal>
           ))}
         </div>
+        <Reveal className="mt-8 text-center">
+          <button onClick={() => navigate('our-consultants')} className="btn-secondary">
+            Meet Our Consultants <ArrowRight className="h-4 w-4" />
+          </button>
+        </Reveal>
       </Section>
 
       <AboutCTA />
