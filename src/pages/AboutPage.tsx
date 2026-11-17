@@ -118,7 +118,7 @@ export default function AboutPage() {
               <button onClick={() => navigate(profile.page)} className="group flex h-full w-full flex-col rounded-3xl bg-white p-6 text-left shadow-soft ring-1 ring-ink-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
                 {profile.image ? (
                   <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-primary-50 ring-1 ring-ink-100">
-                    <img src={profile.image} alt={profile.name} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                    <img src={profile.image} alt={profile.name} className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 ${profile.name === 'Dr. Saket Rallabhandi' ? 'object-[50%_10%]' : 'object-center'}`} loading="lazy" />
                   </div>
                 ) : (
                   <div className="flex aspect-[4/3] items-center justify-center rounded-2xl bg-gradient-to-br from-ink-100 via-stone-100 to-primary-50 text-ink-300 ring-1 ring-ink-100">
