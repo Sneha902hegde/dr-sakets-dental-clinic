@@ -19,10 +19,6 @@ export default function WhatIsOrthodontics() {
                   loading="lazy"
                 />
               </div>
-              <div className="absolute -bottom-5 left-1/2 w-[85%] -translate-x-1/2 rounded-2xl bg-white/95 px-5 py-4 text-center shadow-card ring-1 ring-ink-100 backdrop-blur">
-                <p className="text-sm font-bold text-ink-900">Gentle, guided tooth movement</p>
-                <p className="text-xs text-primary-600">Designed around your biology</p>
-              </div>
             </div>
           </Reveal>
 
