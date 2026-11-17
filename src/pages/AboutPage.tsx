@@ -11,12 +11,14 @@ const teamProfiles = [
     name: 'Dr. Saket Rallabhandi',
     role: 'Orthodontist',
     text: 'Orthodontic and dentofacial expertise with a focus on thoughtful planning, clear communication and confident smiles.',
+    image: '/images/Dr_Saket_Rallabhandi.jpg',
     page: 'our-team-dr-saket' as Page,
   },
   {
     name: 'Dr. Sneha Hegde',
     role: 'Prosthodontist',
     text: 'Restorative care for missing, damaged and worn teeth, including crowns, bridges, dentures and rehabilitation.',
+    image: '/images/Prosthodontist_in_Aundh.jfif',
     page: 'our-team-dr-sneha' as Page,
   },
   {
@@ -114,9 +116,15 @@ export default function AboutPage() {
           {teamProfiles.map((profile, index) => (
             <Reveal key={profile.page} delay={index * 0.08} className="h-full">
               <button onClick={() => navigate(profile.page)} className="group flex h-full w-full flex-col rounded-3xl bg-white p-6 text-left shadow-soft ring-1 ring-ink-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-card">
-                <div className="flex aspect-[4/3] items-center justify-center rounded-2xl bg-gradient-to-br from-ink-100 via-stone-100 to-primary-50 text-ink-300 ring-1 ring-ink-100">
-                  <UsersRound className="h-12 w-12" strokeWidth={1.2} />
-                </div>
+                {profile.image ? (
+                  <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-primary-50 ring-1 ring-ink-100">
+                    <img src={profile.image} alt={profile.name} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                  </div>
+                ) : (
+                  <div className="flex aspect-[4/3] items-center justify-center rounded-2xl bg-gradient-to-br from-ink-100 via-stone-100 to-primary-50 text-ink-300 ring-1 ring-ink-100">
+                    <UsersRound className="h-12 w-12" strokeWidth={1.2} />
+                  </div>
+                )}
                 <p className="mt-6 text-xs font-semibold uppercase tracking-[0.16em] text-primary-600">{profile.role}</p>
                 <h3 className="mt-2 text-xl font-bold text-ink-900">{profile.name}</h3>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-500">{profile.text}</p>
